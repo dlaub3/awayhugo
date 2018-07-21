@@ -1,8 +1,6 @@
 {{ define "main" }}
 
-    {{ range .Pages }}
-    <h1><a href={{ .Permalink }}>{{ .Title }}</a></h1>
-    {{ end }}
+{{- partial "list.html" . -}}
 
 {{ end }}
 

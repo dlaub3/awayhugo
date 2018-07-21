@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" . -}}
-        <main id="content">
-            <nav>
-                    <ul>
-                        <li>
-                            <a href="/blog">Blog</a>
-                        </li>
-                        <li> 
-                            <a href="/about">About</a>
-                        <li>
-                            <a href="/">Home</a></li>
-                        </li>
-                    </ul>
-                </nav>
-            <article>
-                    {{- block "main" . }}{{- end }}
-            </article> 
-        </main>
-        {{- partial "footer.html" . -}}
-    </body>
-</html> 
+{{- partial "head.html" . -}}
+
+<body>
+    {{- partial "header.html" . -}}
+    <main id="content">
+        <nav>
+            <ul>
+                <li>
+                    <strong>
+                        <a href="/blog">Blog</a>
+                    </strong>
+                </li>
+                <li>
+                    <strong>
+                        <a href="/about">About</a>
+                    </strong>
+                    <li>
+                        <strong>
+                            <a href="/">Home</a>
+                    </li>
+                    </strong>
+                </li>
+            </ul>
+        </nav>
+        <section>
+            {{- block "main" . }}{{- end }}
+        </section>
+    </main>
+    {{- partial "footer.html" . -}}
+</body>
+
+</html>

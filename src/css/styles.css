@@ -1,4 +1,32 @@
+/*  45 - 70 characters wide */
+
+
 /* Base */
+
+/*     --header-bg-color: #8ca0ff;;
+    --toggle-bg-color: #8cffa0;
+    --main-bg-color: #ffff64; 
+    --footer-bg-color: #8cffa0; 
+    --nav-bg-color: #b33f26;  */
+
+:root {
+    --body-bg-color: #fff;
+    --body-color: #2c2c2c;;
+
+    --header-bg-color: #e1e1e1;
+    --toggle-bg-color: #e1e1e1;
+    --main-bg-color: #ffffff; 
+    --footer-bg-color: #e1e1e1;
+    --nav-bg-color: #e1e1e1;
+    --pre-bg-color: #e1e1e1;
+    --table-bg-color: #e1e1e1;
+    --thead-bg-color: #d2d2d2;
+    --body-font-size: 16px;
+
+    --link-color: #32425C;
+    --link-visited-color: #6384B8;
+    --link-hover-color: #0C1117;
+}
 
 html {
   box-sizing: border-box;
@@ -8,9 +36,9 @@ html {
 }
 
 body {
-    color: #2c2c2c;
-    background: #fffdf6;
-    font-size: calc(14px + 2 * (100vw / 300));
+    color: var(--body-color);
+    background: var(--body-bg-color);
+    font-size: calc(var(--body-font-size) + 2 * (100vw / 300));
     margin: 0;
     padding: 0;
 }
@@ -30,7 +58,7 @@ body {
 
 body > header {
   grid-area: head;
-  background-color: #8ca0ff;
+  background-color: var(--header-bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +71,7 @@ body > input {
 
 body > label {
   grid-area: toggle;
-  background-color:#8cffa0;
+  background-color: var(--toggle-bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,19 +81,19 @@ body > label {
 }
 
 
-main {
+body > main {
   grid-area: main;
   display: grid;
   max-width: 100vw;
-  grid-template-areas: "article";
+  grid-template-areas: "section";
   grid-template-columns: 1fr;
-  background-color: #ffff64;
+  background-color: var(--main-bg-color);
   
 }
 
 body > footer {
   grid-area: foot;
-  background-color: #8cffa0;
+  background-color: var(--footer-bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +102,7 @@ body > footer {
 /* Main Layout - Navigation and Article */
 
 input:checked ~ main {
-  grid-template-areas: "nav article";
+  grid-template-areas: "nav section";
   grid-template-columns: minmix(min-content, 90vw) 1fr;
 }
 
@@ -86,13 +114,37 @@ main > nav {
 input:checked ~ main > nav {
   display: block;
   grid-area: nav;
-  background-color: #b33f26;
+  background-color: var(--nav-bg-color);
 }
 
-main > article {
+main > section {
   padding: 2vw 4vw;
-  grid-area: article;
+  grid-area: section;
   min-width: 100%;
+}
+
+@media screen and (min-width: 500px) {
+  main > section {
+    padding: 2vw 10vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  main > section {
+    padding: 4vw 20vw;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  main > section {
+    padding: 6vw 25vw;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  main > section {
+    padding: 8vw 35vw;
+  }
 }
 
 /* Navigation */
@@ -113,23 +165,40 @@ main > nav > ul > li {
 }
 
 main > nav a {
-    color: black;
     font-size: 1.5em;
 }
 
  
 /* Elements*/
 
+
+table, pre {
+  overflow-x: auto;
+}
+
 table, article a {
   word-wrap: break-word;
   word-break: break-all;
 }
 
+thead {
+    background: var(--thead-bg-color);
+}
+th, td {
+    padding: 1vw;
+    border: 1px solid;
+}
+
+table {
+    background: var(--table-bg-color);
+    border: 1px solid;
+}
+
 pre {
-  background-color: lightgrey;
+  background-color: var(--pre-bg-color);
   padding: 2vw 1vw;
+  border: 1px solid;
   font-size: 0.8em;
-  overflow-x: auto;
   white-space: pre;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   text-align: left;
@@ -139,6 +208,20 @@ pre {
   word-wrap: normal; 
 }
 
-table {
-  overflow-x: auto;
+section > aside {
+  margin: 1vw 0;
+  padding: 0.5vw 1vw;
+  border: 1px solid;
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:visited {
+  color: var(--link-visited-color);
+}
+
+a:hover {
+  color: var(--link-hover-color);
 }

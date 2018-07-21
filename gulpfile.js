@@ -1,4 +1,5 @@
 var postcss = require('gulp-postcss');
+var precss = require('precss');
 var gulp = require('gulp');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
@@ -28,6 +29,7 @@ console.log('css dest path is: ', dest.css)
 console.log('js dest path is: ', dest.js);
 
 var plugins = [
+    precss(),
     autoprefixer({browsers: ['last 1 version']}),
     cssnano()
 ];
