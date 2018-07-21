@@ -3,11 +3,14 @@
 
 /* Base */
 
-/*     --header-bg-color: #8ca0ff;;
+
+/*  
+    --header-bg-color: #8ca0ff;;
     --toggle-bg-color: #8cffa0;
     --main-bg-color: #ffff64; 
     --footer-bg-color: #8cffa0; 
-    --nav-bg-color: #b33f26;  */
+    --nav-bg-color: #b33f26;  
+*/
 
 :root {
     --body-bg-color: #fff;
@@ -17,14 +20,15 @@
     --toggle-bg-color: #e1e1e1;
     --main-bg-color: #ffffff; 
     --footer-bg-color: #e1e1e1;
-    --nav-bg-color: #e1e1e1;
-    --pre-bg-color: #e1e1e1;
+    --nav-bg-color: #32425C;
+    --nav-color: #fff;
+    --pre-bg-color: #f5f5f5;
     --table-bg-color: #e1e1e1;
     --thead-bg-color: #d2d2d2;
     --body-font-size: 16px;
 
-    --link-color: #32425C;
-    --link-visited-color: #6384B8;
+    --link-visited-color: #32425C;
+    --link-color: #6384B8;
     --link-hover-color: #0C1117;
 }
 
@@ -175,8 +179,9 @@ main > nav > ul > li {
     margin: 2px;
 }
 
-main > nav a {
+main > nav a, main > nav a:visited, main > nav a:hover, main > nav a:focus {
     font-size: 1.1em;
+    color: var(--nav-color);
 }
 
  
@@ -219,11 +224,7 @@ pre {
   word-wrap: normal; 
 }
 
-section > aside {
-  margin: 1vw 0;
-  padding: 0.5vw 1vw;
-  border: 1px solid;
-}
+/* Links */
 
 a {
   color: var(--link-color);
@@ -235,4 +236,37 @@ a:visited {
 
 a:hover {
   color: var(--link-hover-color);
+}
+
+
+/* Site Title */
+a.site-title {
+  text-decoration: none;
+  color: var(--body-color);
+}
+
+
+/* List of posts  */
+.post-list-item, .post-list-item:focus, .post-list-item:visited {
+  color: var(--body-color);
+  background: var(--pre-bg-color);
+  border: 1px solid;
+  display: block;
+  margin: 1vw 0;
+  padding: 2vw 4vw;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.post-list-item:hover {
+  box-shadow: 1px 1px 1px;
+}
+
+.post-list ul {
+  margin: 0;
+  padding: 0;
+}
+
+.post-list li {
+  list-style-type: none;
 }
