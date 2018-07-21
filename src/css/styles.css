@@ -212,7 +212,6 @@ table {
 
 pre {
   background-color: var(--pre-bg-color);
-  padding: 2vw 1vw;
   border: 1px solid;
   font-size: 0.8em;
   white-space: pre;
