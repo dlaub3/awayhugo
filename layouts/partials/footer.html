@@ -1,3 +1,5 @@
 <footer>
-    Site Footer
+    <small>
+        {{ replace .Site.Copyright "{year}" (now.Format "2006") }}
+    </small>
 </footer>
