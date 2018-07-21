@@ -12,8 +12,8 @@
     "rev-del": "^1.0.5"
   },
   "scripts": {
-    "dev": "gulp watch",
-    "build": "NODE_ENV=production gulp default"
+    "dev": "node_modules/.bin/gulp watch",
+    "build": "NODE_ENV=production node_modules/.bin/gulp default"
   },
   "author": "",
   "license": "ISC"
