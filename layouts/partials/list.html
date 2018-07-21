@@ -1,0 +1,6 @@
+{{ range .Pages }}
+    <aside>
+            <h3><a href={{ .Permalink }}>{{ .Title }}</a></h3>
+            {{ .Description }}
+    </aside>
+{{ end }}
