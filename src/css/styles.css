@@ -1,5 +1,12 @@
 /* Base */
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
     color: #2c2c2c;
     background: #fffdf6;
@@ -41,7 +48,7 @@ body > label {
   justify-content: center;
   align-items: center;
   padding: 0 1vw;
-  width: calc(100% - 1vw);
+  width: 100%;
   font-size: 1.5em;
 }
 
@@ -84,7 +91,8 @@ input:checked ~ main > nav {
 
 main > article {
   padding: 2vw 4vw;
-  max-width: calc(100vw - 8vw);
+  grid-area: article;
+  min-width: 100%;
 }
 
 /* Navigation */
@@ -93,7 +101,7 @@ main > nav > ul {
     display: flex;
     flex-direction: column;
     justify-items: flex-start;
-    align-items: center;
+    align-items: flex-start;
     margin: 0;
     padding: 0;
 }
@@ -112,7 +120,7 @@ main > nav a {
  
 /* Elements*/
 
-a, table {
+table, article a {
   word-wrap: break-word;
   word-break: break-all;
 }
