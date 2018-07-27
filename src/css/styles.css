@@ -81,6 +81,7 @@ body > label {
   justify-content: center;
   align-items: center;
   height: 2.2em;
+  min-width: 50px;
   padding: 0 1vw;
 }
 
