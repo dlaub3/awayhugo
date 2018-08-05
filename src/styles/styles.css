@@ -10,15 +10,13 @@
     --nav-bg-color: #b33f26;  
 */
 
-
 :root {
   --body-bg-color: #fff;
   --body-color: #2c2c2c;
-  
 
   --header-bg-color: #e1e1e1;
   --toggle-bg-color: #e1e1e1;
-  --main-bg-color: #ffffff;
+  --main-bg-color: #fff;
   --footer-bg-color: #e1e1e1;
   --nav-bg-color: #32425c;
   --nav-color: #fff;
@@ -62,6 +60,7 @@ body {
   grid-template-columns: 1fr;
 }
 
+
 body > header {
   grid-area: head;
   background-color: var(--header-bg-color);
@@ -89,9 +88,9 @@ body > label {
   transition: all 500ms;
 }
 
-body > label:hover {
-  color: var(--nav-color);
-  background-color: var(--nav-bg-color);
+body > label:hover, input:checked + label {
+  background-color: var(--toggle-bg-color);
+  filter:brightness(105%);
 }
 
 body > label > span {
