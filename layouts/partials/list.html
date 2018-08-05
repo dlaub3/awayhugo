@@ -1,6 +1,14 @@
-{{ range .Pages }}
-    <aside>
-            <h3><a href={{ .Permalink }}>{{ .Title }}</a></h3>
-            {{ .Description }}
-    </aside>
-{{ end }}
+<nav class="post-list">
+    <ul>
+        {{ range .Pages }}
+        <li>
+            <a class="post-list-item" href={{ .Permalink }}>
+                <div>
+                    <h3>{{ .Title }}</h3>
+                    <p> {{ .Description }}</p>
+                </div>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</nav>
