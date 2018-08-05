@@ -1,40 +1,43 @@
-var postcss = require('gulp-postcss');
-var precss = require('precss');
-var gulp = require('gulp');
-var autoprefixer = require('autoprefixer');
-var cssnano = require('cssnano');
-var rev = require('gulp-rev');
-var revDel = require('rev-del');
-var fs = require('fs');
-var path = require('path');
-var log = require('fancy-log');
-var critical = require('critical').stream;
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var dirString = path.dirname(fs.realpathSync(__filename));
+const postcss = require('gulp-postcss');
+const precss = require('precss');
+const gulp = require('gulp');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const rev = require('gulp-rev');
+const revDel = require('rev-del');
+const revReplace = require('gulp-rev-replace');
+const fs = require('fs');
+const path = require('path');
+const log = require('fancy-log');
+const critical = require('critical').stream;
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
+const dirString = path.dirname(fs.realpathSync(__filename));
 
-var src = {
+const src = {
     css: dirString + '/src/styles/*.css',
     js: dirString + '/src/scripts/*.js',
     vendorCSS: dirString + '/src/vendor/*.css',
     vendorJS: dirString + '/src/vendor/*.js',
 }
 
-var dest = {
+const dest = {
     css: dirString + '/static/assets/styles/',
     js: dirString + '/static/assets/scripts/',
     vendor: dirString + '/static/assets/vendor/',
 }
 
-var env;
-env = process.env.NODE_ENV || 'development';
+const html = {
+    head: dirString + '/src/head.html',
+    footer: dirString + '/layouts/partials/footer.html',
+}
 
-console.log('css src path is: ', src.css)
-console.log('js src path is: ', src.js);
-console.log('css dest path is: ', dest.css)
-console.log('js dest path is: ', dest.js);
+log('css src path is: ', src.css)
+log('js src path is: ', src.js);
+log('css dest path is: ', dest.css)
+log('js dest path is: ', dest.js);
 
-var plugins = [
+const plugins = [
     precss(),
     autoprefixer({
         browsers: ['last 1 version']
@@ -42,7 +45,9 @@ var plugins = [
     cssnano()
 ];
 
-gulp.task('vendorCSS', function() {
+const vendorCSS = () => {
+    const manifest = `${dest.vendor}rev-manifest.json`;
+
     return gulp.src(src.vendorCSS)
         .pipe(concat('vendor.css'))
         .pipe(postcss(plugins))
@@ -56,9 +61,9 @@ gulp.task('vendorCSS', function() {
             dest: dest.vendor
         }))
         .pipe(gulp.dest(dest.vendor));
-});
+};
 
-gulp.task('vendorJS', function() {
+const vendorJS = () => {
     return gulp.src(src.vendorJS)
         .pipe(concat('vendor.js'))
         .pipe(uglify())
@@ -72,52 +77,67 @@ gulp.task('vendorJS', function() {
             dest: dest.vendor
         }))
         .pipe(gulp.dest(dest.vendor));
-});
+};
 
-gulp.task('buildCSS', function() {
-    return gulp.src(src.css, src.vendorCSS)
+const buildCSS = () => {
+    return gulp.src(src.css)
         .pipe(postcss(plugins))
         .pipe(rev())
         .pipe(gulp.dest(dest.css))
         .pipe(rev.manifest(`${dest.css}rev-manifest.json`, {
             base: dest.css,
-            merge: true
         }))
         .pipe(revDel({
             dest: dest.css
         }))
         .pipe(gulp.dest(dest.css));
-});
+};
 
-gulp.task('devCSS', function() {
-    return devCSS = gulp.src(src.css)
+const devCSS = () => {
+    return gulp.src(src.css)
         .pipe(postcss(plugins))
         .pipe(gulp.dest(dest.css));
-});
+};
 
-gulp.task('criticalCSS', function () {
-    return gulp.src('layouts/critical.html')
+const criticalCSS = () => {
+    return gulp.src('src/head.html')
         .pipe(critical({
-            base: 'layouts/partials/',
-            dest: 'head.html',
-            inline: true, 
-            css: ['static/assets/styles/styles.css']}
-        ))
-        .on('error', function(err) { 
+            base: 'static',
+            inline: true
+        }))
+        .on('error', (err) => { 
             log.error(err.message); 
-        });
-});
+        })
+        .pipe(gulp.dest( 'layouts/partials/' ));
+};
 
-gulp.task('default', ['devCSS']);
+const revVendor = () => {
+    const manifest = gulp.src( dest.vendor + "rev-manifest.json");
+   
+    return gulp.src(html.footer, { base: html.footer })
+      .pipe(revReplace({ manifest: manifest }))
+      .pipe(gulp.dest( html.footer ));
+};
 
-gulp.task('build', ['buildCSS', 'criticalCSS']);
+const revCriticalCSS = () => {
+    const manifest = gulp.src( dest.css + "rev-manifest.json");
+   
+    return gulp.src(html.head, { base: html.head })
+      .pipe(revReplace({ manifest: manifest }))
+      .pipe(gulp.dest( html.head ));
+};
 
-gulp.task('vendor', ['vendorCSS', 'vendorJS']);
-
-gulp.task('watch', function() {
-    css = (env === 'production') ? ['buildCSS'] : ['devCSS'];
-    var watcher = gulp.watch([src.css], css);
-    watcher.on('change', function(event) {
-        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+const watch = ()  => {
+    const watcher = gulp.watch([src.css], gulp.series([devCSS]));
+    return watcher.on('change', (event) => {
+        log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
-});
+};
+
+gulp.task('default', gulp.series([ devCSS ]));
+
+gulp.task('watch', watch);
+
+gulp.task('build', gulp.series([ buildCSS, revCriticalCSS, criticalCSS ]));
+
+gulp.task('vendor', gulp.series([ vendorCSS, vendorJS, revVendor ]));
