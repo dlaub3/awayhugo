@@ -10,9 +10,11 @@
     --nav-bg-color: #b33f26;  
 */
 
+
 :root {
   --body-bg-color: #fff;
   --body-color: #2c2c2c;
+  
 
   --header-bg-color: #e1e1e1;
   --toggle-bg-color: #e1e1e1;
@@ -83,6 +85,13 @@ body > label {
   height: 2.2em;
   min-width: 50px;
   padding: 0 1vw;
+  border-right: 1px solid #b5b5b5;
+  transition: all 500ms;
+}
+
+body > label:hover {
+  color: var(--nav-color);
+  background-color: var(--nav-bg-color);
 }
 
 body > label > span {
