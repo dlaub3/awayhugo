@@ -11,7 +11,7 @@
 */
 
 :root {
-  --body-bg-color: #fff;
+  --body-bg-color: rgb(255, 255, 255);
   --body-color: #2c2c2c;
 
   --header-bg-color: #e1e1e1;
@@ -219,7 +219,7 @@ table {
   border: 1px solid;
 }
 
-pre {
+pre, li > code, p > code  {
   background-color: var(--pre-bg-color);
   border: 1px solid;
   font-size: 0.8em;
@@ -230,6 +230,11 @@ pre {
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
+}
+
+li > code, p > code {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* Links */
