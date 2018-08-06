@@ -9,9 +9,9 @@ const revReplace = require('gulp-rev-replace');
 const fs = require('fs');
 const path = require('path');
 const log = require('fancy-log');
-const critical = require('critical').stream;
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
+const rename = require("gulp-rename");
 const dirString = path.dirname(fs.realpathSync(__filename));
 
 const src = {
@@ -28,7 +28,7 @@ const dest = {
 }
 
 const html = {
-    head: dirString + '/src/head.html',
+    head: dirString + '/layouts/partials/head.links.html',
     footer: dirString + '/layouts/partials/footer.html',
 }
 
@@ -79,39 +79,7 @@ const vendorJS = () => {
         .pipe(gulp.dest(dest.vendor));
 };
 
-const buildCSS = () => {
-    return gulp.src(src.css)
-        .pipe(postcss(plugins))
-        .pipe(rev())
-        .pipe(gulp.dest(dest.css))
-        .pipe(rev.manifest(`${dest.css}rev-manifest.json`, {
-            base: dest.css,
-        }))
-        .pipe(revDel({
-            dest: dest.css
-        }))
-        .pipe(gulp.dest(dest.css));
-};
-
-const devCSS = () => {
-    return gulp.src(src.css)
-        .pipe(postcss(plugins))
-        .pipe(gulp.dest(dest.css));
-};
-
-const criticalCSS = () => {
-    return gulp.src('src/head.html')
-        .pipe(critical({
-            base: 'static',
-            inline: true
-        }))
-        .on('error', (err) => { 
-            log.error(err.message); 
-        })
-        .pipe(gulp.dest( 'layouts/partials/' ));
-};
-
-const revVendor = () => {
+const revFooter = () => {
     const manifest = gulp.src( dest.vendor + "rev-manifest.json");
    
     return gulp.src(html.footer, { base: html.footer })
@@ -119,12 +87,51 @@ const revVendor = () => {
       .pipe(gulp.dest( html.footer ));
 };
 
-const revCriticalCSS = () => {
-    const manifest = gulp.src( dest.css + "rev-manifest.json");
+const revHead = () => {
+    const manifest = gulp.src( dest.vendor + "rev-manifest.json");
    
     return gulp.src(html.head, { base: html.head })
-      .pipe(revReplace({ manifest: manifest }))
-      .pipe(gulp.dest( html.head ));
+    .pipe(revReplace({ manifest: manifest }))
+    .pipe(gulp.dest( html.head ));
+};
+
+
+// const buildCSS = () => {
+//     return gulp.src(src.css)
+//         .pipe(postcss(plugins))
+//         .pipe(rev())
+//         .pipe(gulp.dest(dest.css))
+//         .pipe(rev.manifest(`${dest.css}rev-manifest.json`, {
+//             base: dest.css,
+//         }))
+//         .pipe(revDel({
+//             dest: dest.css
+//         }))
+//         .pipe(gulp.dest(dest.css));
+// };
+
+// const revCriticalCSS = () => {
+//     const manifest = gulp.src( dest.css + "rev-manifest.json");
+
+//     return gulp.src(html.head, { base: html.head })
+//       .pipe(revReplace({ manifest: manifest }))
+//       .pipe(gulp.dest( html.head ));
+// };
+
+const criticalCSS = () => {
+    return gulp.src(src.css)
+    .pipe(postcss(plugins))
+    .pipe(rename({
+        basename: "head.critical",
+        extname: ".html"
+    }))
+    .pipe(gulp.dest('layouts/partials/'));
+};
+
+const devCSS = () => {
+    return gulp.src(src.css)
+        .pipe(postcss(plugins))
+        .pipe(gulp.dest(dest.css));
 };
 
 const watch = ()  => {
@@ -138,6 +145,6 @@ gulp.task('default', gulp.series([ devCSS ]));
 
 gulp.task('watch', watch);
 
-gulp.task('build', gulp.series([ buildCSS, revCriticalCSS, criticalCSS ]));
+gulp.task('build', gulp.series([ criticalCSS ]));
 
-gulp.task('vendor', gulp.series([ vendorCSS, vendorJS, revVendor ]));
+gulp.task('vendor', gulp.series([ vendorCSS, vendorJS, revHead, revFooter ]));

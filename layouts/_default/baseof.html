@@ -4,7 +4,13 @@
 {{ if eq .Site.Params.env "dev" }}
     {{- partial "head.dev.html" . -}}
 {{ else }}
-    {{- partial "head.html" . -}}
+<head>
+    <style>
+    {{- partial "head.critical.html" . -}}
+    </style>
+    {{- partial "head.meta.html" . -}}
+    {{- partial "head.links.html" . -}}
+</head>
 {{ end }}
 
 <body>
