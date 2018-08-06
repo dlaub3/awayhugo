@@ -5,10 +5,8 @@
     {{- partial "head.dev.html" . -}}
 {{ else }}
 <head>
-    <style>
-    {{- partial "head.critical.html" . -}}
-    </style>
     {{- partial "head.meta.html" . -}}
+    {{- partial "head.critical.html" . -}}
     {{- partial "head.links.html" . -}}
 </head>
 {{ end }}

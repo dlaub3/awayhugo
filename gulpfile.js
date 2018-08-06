@@ -12,6 +12,7 @@ const log = require('fancy-log');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const rename = require("gulp-rename");
+const replace = require('gulp-replace');
 const dirString = path.dirname(fs.realpathSync(__filename));
 
 const src = {
@@ -121,6 +122,8 @@ const revHead = () => {
 const criticalCSS = () => {
     return gulp.src(src.css)
     .pipe(postcss(plugins))
+    .pipe(replace(/(^)/g, '<style>\n$1'))
+    .pipe(replace(/($)/g, '\n</style>$1'))
     .pipe(rename({
         basename: "head.critical",
         extname: ".html"
