@@ -22,7 +22,8 @@
   "scripts": {
     "dev": "node_modules/.bin/gulp watch & cd ../.. && hugo server --watch --config config.dev.toml",
     "prod": "node_modules/.bin/gulp watch & cd ../.. && hugo server --watch",
-    "build": "node_modules/.bin/gulp build & cd ../.. && hugo server --watch"
+    "build": "node_modules/.bin/gulp build & cd ../.. && hugo server --watch",
+    "vendor": "node_modules/.bin/gulp vendor"
   },
   "author": "",
   "license": "ISC",

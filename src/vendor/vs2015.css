@@ -3,12 +3,14 @@
  * Author: Nicolas LLOBERA <nllobera@gmail.com>
  */
 
-.hljs {
+ .hljs {
+  background: #011225;
+  color: #dcdcdc;
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
-  background: #1E1E1E;
-  color: #DCDCDC;
+  padding: .5em;
+  box-shadow: inset 2px 2px 15px #0b0a0a;
+  text-shadow: 1px 0.15rem black;
 }
 
 .hljs-keyword,
