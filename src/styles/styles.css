@@ -283,3 +283,23 @@ a.site-title {
 .post-list li {
   list-style-type: none;
 }
+
+blockquote {
+  background: var(--pre-bg-color);
+  border-left: 0.1em solid;
+  padding: 0.5em  1.5em;
+}
+
+cite  {
+  font-size: 0.9em;
+}
+
+.hljs {
+    background: #011225;
+    color: #dcdcdc;
+    display: block;
+    overflow-x: auto;
+    padding: .5em;
+    box-shadow: inset 2px 2px 15px #0b0a0a;
+    text-shadow: 1px 0.15rem black;
+}
