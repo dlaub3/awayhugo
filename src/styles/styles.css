@@ -199,8 +199,7 @@ pre {
   overflow-x: auto;
 }
 
-table,
-article a {
+* {
   word-wrap: break-word;
   word-break: break-all;
 }
