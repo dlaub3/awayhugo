@@ -40,9 +40,7 @@ log('js dest path is: ', dest.js);
 
 const plugins = [
     precss(),
-    autoprefixer({
-        browsers: ['last 1 version']
-    }),
+    autoprefixer(),
     cssnano()
 ];
 
