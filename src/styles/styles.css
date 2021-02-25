@@ -11,6 +11,21 @@
 */
 
 :root {
+  --a: mediumspringgreen;
+  --m: mediumslateblue;
+  --c: deeppink;
+  --d: darkviolet;
+  --n: darkorchid;
+  --e: dodgerblue;
+  --f: fuchsia;
+  --o: hotpink;
+  --g: chartreuse;
+  --h: crimson;
+  --i: yellow;
+  --j: black;
+  --k: white;
+  --l: dimgrey;
+
   --body-bg-color: rgb(255, 255, 255);
   --body-color: #2c2c2c;
 
@@ -85,7 +100,7 @@ body > label {
   min-width: 50px;
   padding: 0 1vw;
   border-right: 1px solid #b5b5b5;
-  transition: all 500ms;
+  transition: background-color 500ms;
 }
 
 body > label:hover, input:checked + label {
@@ -123,18 +138,17 @@ main > nav {
   padding: 2vh 1vw;
   top: 0;
   bottom: 0;
-  left: calc(-1 * 200px + 5vw);
+  left: calc(-1 * (200px + 5vw));
   max-width: 100vw;
   width: calc(200px + 5vw);
-  opacity: 0;
   transition: 0.5s;
   overflow: hidden;
+  background-color: var(--nav-bg-color);
 }
 
 input:checked ~ main > nav {
-  opacity: 1;
   left: 0;
-  background-color: var(--nav-bg-color);
+  transition: translateX(calc(2*(200px + 5vw)));
 }
 
 main > section {
