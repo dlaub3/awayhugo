@@ -1,0 +1,7 @@
+<div>
+  {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+  {{ range $key, $value := $taxonomy }}
+  <a class="{{$taxonomyname | singularize}}" href="{{$value.Page.URL}}"> <span>{{ $key }} </span></a>
+  {{ end }}
+  {{ end }}
+</div>

@@ -1,11 +1,22 @@
-<footer>
+<footer class="main-footer">
+  <div class="footer-first">
     <small>
-        {{ replace .Site.Copyright "{year}" (now.Format "2006") }}
+      {{ replace .Site.Copyright "{year}" (now.Format "2006") }}
     </small>
-    <script src="/assets/vendor/vendor-3dc8230a1a.js"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            hljs.initHighlightingOnLoad();
-        });
-    </script>
+  </div>
+  <span class="vertical-bar"></span>
+  <div class="footer-last">
+    <a href="/about">
+      <small>
+        about
+      </small>
+    </a>
+  </div>
+  <script src="/assets/vendor/vendor-3dc8230a1a.js"></script>
+  <script src="/assets/scripts/main.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      hljs.initHighlightingOnLoad();
+    });
+  </script>
 </footer>

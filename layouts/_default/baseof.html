@@ -2,37 +2,47 @@
 <html lang="en">
 
 {{ if eq .Site.Params.env "dev" }}
-    {{- partial "head.dev.html" . -}}
+{{- partial "head.dev.html" . -}}
 {{ else }}
+
 <head>
-    {{- partial "head.meta.html" . -}}
-    {{- partial "head.critical.html" . -}}
-    {{- partial "head.links.html" . -}}
+  {{- partial "head.meta.html" . -}}
+  {{- partial "head.critical.html" . -}}
+  {{- partial "head.links.html" . -}}
 </head>
 {{ end }}
 
 <body>
-    {{- partial "header.html" . -}}
-    <main id="content">
-        <nav>
-            <ul>
-                <li>
-                    <strong>
-                        <a href="/">Home</a>
-                    </strong>
-                </li>
-                <li>
-                    <strong>
-                        <a href="/about">About</a>
-                    </strong>
-                </li>
-            </ul>
-        </nav>
-        <section>
-            {{- block "main" . }}{{- end }}
-        </section>
-    </main>
-    {{- partial "footer.html" . -}}
+  <div id="skip"><a href="#content">Skip to Main Content</a></div>
+  <div class="action-bar">
+    <button onclick="toggleMainNav()" class="menu hamburger hamburger--collapse">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+  </div>
+  {{- partial "header.html" . -}}
+  <nav class="main-nav hidden" aria-hidden="true">
+    <ul>
+      {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+      {{if eq $taxonomyname "tags"}}
+      {{ range $key, $value := $taxonomy }}
+      <li class="upper">
+        <strong>
+          <a id="{{$key}}" href="{{$value.Page.Permalink}}"> <span>{{ $key }} </span></a>
+        </strong>
+      </li>
+      {{ end }}
+      {{ end }}
+      {{ end }}
+    </ul>
+  </nav>
+  <main id="content">
+    <section>
+      {{- block "main" . }}{{- end }}
+    </section>
+  </main>
+  {{- partial "footer.html" . -}}
 </body>
 
 </html>
