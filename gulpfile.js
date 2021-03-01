@@ -14,8 +14,12 @@ const concat = require('gulp-concat');
 const rename = require("gulp-rename");
 const replace = require('gulp-replace');
 const dirString = path.dirname(fs.realpathSync(__filename));
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 
 const src = {
+    path: dirString + '/src/styles/',
+    scss: dirString + '/src/styles/*.scss',
     css: dirString + '/src/styles/*.css',
     js: dirString + '/src/scripts/*.js',
     vendorCSS: dirString + '/src/vendor/*.css',
@@ -45,8 +49,6 @@ const plugins = [
 ];
 
 const vendorCSS = () => {
-    const manifest = `${dest.vendor}rev-manifest.json`;
-
     return gulp.src(src.vendorCSS)
         .pipe(concat('vendor.css'))
         .pipe(postcss(plugins))
@@ -76,6 +78,22 @@ const vendorJS = () => {
             dest: dest.vendor
         }))
         .pipe(gulp.dest(dest.vendor));
+};
+
+const mainJs = () => {
+    return gulp.src(src.js)
+        .pipe(concat('main.js'))
+        .pipe(uglify())
+        .pipe(rev())
+        .pipe(gulp.dest(dest.js))
+        .pipe(rev.manifest(`${dest.js}rev-manifest.json`, {
+            base: dest.js,
+            merge: true
+        }))
+        .pipe(revDel({
+            dest: dest.js
+        }))
+        .pipe(gulp.dest(dest.js));
 };
 
 const revFooter = () => {
@@ -130,14 +148,16 @@ const criticalCSS = () => {
 };
 
 const devCSS = () => {
-    return gulp.src(src.css)
+    return gulp.src(src.scss)
+        .pipe(sass().on('error', sass.logError))
         .pipe(postcss(plugins))
         .pipe(gulp.dest(dest.css));
 };
 
 const watch = ()  => {
-    const watcher = gulp.watch([src.css], gulp.series([devCSS]));
-    return watcher.on('change', (event) => {
+    const watcher = gulp.watch(src.js, mainJs)
+                    gulp.watch([src.scss, src.css], gulp.series([devCSS]));
+    watcher.on('change', (event) => {
         log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 };
@@ -148,4 +168,4 @@ gulp.task('watch', watch);
 
 gulp.task('build', gulp.series([ criticalCSS ]));
 
-gulp.task('vendor', gulp.series([ vendorCSS, vendorJS, revHead, revFooter ]));
+gulp.task('vendor', gulp.series([ mainJs, vendorCSS, vendorJS, revHead, revFooter ]));
