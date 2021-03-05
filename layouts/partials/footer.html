@@ -12,8 +12,19 @@
       </small>
     </a>
   </div>
-  <script src="/assets/vendor/vendor-3dc8230a1a.js"></script>
-  <script src="/assets/scripts/main.js"></script>
+
+  {{ if eq .Site.Params.env "dev" }}
+  {{ $mainJs := resources.Get "scripts/main.js" }}
+  {{ $vendorJs := resources.Get "vendor/vendor.js" }}
+  <script src="{{ $vendorJs.Permalink }}"></script>
+  <script src="{{ $mainJs.Permalink }}"></script>
+  {{ else }}
+  {{ $mainJs := resources.Get "scripts/main.js" | js.Build "main.js" | minify | fingerprint }}
+  {{ $vendorJs := resources.Get "vendor/vendor.js" | js.Build "vendor.js" | minify | fingerprint }}
+  <script src="{{ $vendorJs.Permalink }}"></script>
+  <script src="{{ $mainJs.Permalink }}"></script>
+  {{ end }}
+
   <script>
     window.addEventListener('DOMContentLoaded', function () {
       hljs.initHighlightingOnLoad();

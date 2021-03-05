@@ -37,7 +37,7 @@ const focusableElements = `
   summary:not(:disabled)`
 
 
-const handleFocusIn = (e: KeyboardEvent) => {
+const handleFocusInStas = (event: KeyboardEvent) => {
   //const nodeList: Element[] = []
 
 

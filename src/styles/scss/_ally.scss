@@ -1,0 +1,37 @@
+#skip {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#skip a,
+#skip a:visited,
+#skip a:active,
+#skip a:hover {
+  position: absolute;
+  left: -10000px;
+  overflow: hidden;
+  transition: all 300ms;
+  color: var(--foreground);
+}
+
+@keyframes skip {
+  from {
+    position: absolute;
+  }
+  to {
+    position: static;
+  }
+}
+
+#skip a:focus {
+  margin: 20px 50px;
+  padding: 15px 20px;
+  background: var(--pink);
+  transition: all 300ms;
+  animation-fill-mode: both;
+  animation-delay: 300ms;
+  animation-name: skip;
+  outline-color: white;
+}

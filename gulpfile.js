@@ -18,125 +18,59 @@ const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 
 const src = {
-    path: dirString + '/src/styles/',
-    scss: dirString + '/src/styles/*.scss',
-    css: dirString + '/src/styles/*.css',
-    js: dirString + '/src/scripts/*.js',
-    vendorCSS: dirString + '/src/vendor/*.css',
-    vendorJS: dirString + '/src/vendor/*.js',
+    scss: dirString + '/src/styles/scss',
+    css: dirString + '/src/styles/css',
+    js: dirString + '/src/scripts',
+    vendorCSS: dirString + '/src/vendor',
+    vendorJS: dirString + '/src/vendor',
 }
 
 const dest = {
-    css: dirString + '/static/assets/styles/',
-    js: dirString + '/static/assets/scripts/',
-    vendor: dirString + '/static/assets/vendor/',
+    css: dirString + '/assets/styles/',
+    js: dirString + '/assets/scripts/',
+    vendor: dirString + '/assets/vendor/',
 }
-
-const html = {
-    head: dirString + '/layouts/partials/head.links.html',
-    footer: dirString + '/layouts/partials/footer.html',
-}
-
-log('css src path is: ', src.css)
-log('js src path is: ', src.js);
-log('css dest path is: ', dest.css)
-log('js dest path is: ', dest.js);
 
 const plugins = [
     precss(),
     autoprefixer(),
-    cssnano()
 ];
 
 const vendorCSS = () => {
-    return gulp.src(src.vendorCSS)
+    return gulp.src(src.vendorCSS + '/*.css')
         .pipe(concat('vendor.css'))
         .pipe(postcss(plugins))
-        .pipe(rev())
-        .pipe(gulp.dest(dest.vendor))
-        .pipe(rev.manifest(`${dest.vendor}rev-manifest.json`, {
-            base: dest.vendor,
-            merge: true
-        }))
-        .pipe(revDel({
-            dest: dest.vendor
-        }))
         .pipe(gulp.dest(dest.vendor));
 };
 
 const vendorJS = () => {
-    return gulp.src(src.vendorJS)
+    return gulp.src(src.vendorJS + '/*.js')
         .pipe(concat('vendor.js'))
-        .pipe(uglify())
-        .pipe(rev())
-        .pipe(gulp.dest(dest.vendor))
-        .pipe(rev.manifest(`${dest.vendor}rev-manifest.json`, {
-            base: dest.vendor,
-            merge: true
-        }))
-        .pipe(revDel({
-            dest: dest.vendor
-        }))
         .pipe(gulp.dest(dest.vendor));
 };
 
 const mainJs = () => {
-    return gulp.src(src.js)
+    return gulp.src(src.js + '/*.js')
         .pipe(concat('main.js'))
-        .pipe(uglify())
-        .pipe(rev())
         .pipe(gulp.dest(dest.js))
-        .pipe(rev.manifest(`${dest.js}rev-manifest.json`, {
-            base: dest.js,
-            merge: true
-        }))
-        .pipe(revDel({
-            dest: dest.js
-        }))
-        .pipe(gulp.dest(dest.js));
-};
-
-const revFooter = () => {
-    const manifest = gulp.src( dest.vendor + "rev-manifest.json");
-   
-    return gulp.src(html.footer, { base: html.footer })
-      .pipe(revReplace({ manifest: manifest }))
-      .pipe(gulp.dest( html.footer ));
-};
-
-const revHead = () => {
-    const manifest = gulp.src( dest.vendor + "rev-manifest.json");
-   
-    return gulp.src(html.head, { base: html.head })
-    .pipe(revReplace({ manifest: manifest }))
-    .pipe(gulp.dest( html.head ));
 };
 
 
-// const buildCSS = () => {
-//     return gulp.src(src.css)
-//         .pipe(postcss(plugins))
-//         .pipe(rev())
-//         .pipe(gulp.dest(dest.css))
-//         .pipe(rev.manifest(`${dest.css}rev-manifest.json`, {
-//             base: dest.css,
-//         }))
-//         .pipe(revDel({
-//             dest: dest.css
-//         }))
-//         .pipe(gulp.dest(dest.css));
-// };
+const devSCSS = () => {
+    return gulp.src(src.scss + '/main.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(src.css));
+};
 
-// const revCriticalCSS = () => {
-//     const manifest = gulp.src( dest.css + "rev-manifest.json");
+const devCSS = () => {
+    return gulp.src(src.css + '/*.css')
+        .pipe(postcss(plugins))
+        .pipe(gulp.dest(dest.css))
 
-//     return gulp.src(html.head, { base: html.head })
-//       .pipe(revReplace({ manifest: manifest }))
-//       .pipe(gulp.dest( html.head ));
-// };
+};
 
 const criticalCSS = () => {
-    return gulp.src(src.css)
+    return gulp.src(src.css + '/*.css')
     .pipe(postcss(plugins))
     .pipe(replace(/(^)/g, '<style>\n$1'))
     .pipe(replace(/($)/g, '\n</style>$1'))
@@ -147,25 +81,20 @@ const criticalCSS = () => {
     .pipe(gulp.dest('layouts/partials/'));
 };
 
-const devCSS = () => {
-    return gulp.src(src.scss)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(postcss(plugins))
-        .pipe(gulp.dest(dest.css));
-};
-
 const watch = ()  => {
-    const watcher = gulp.watch(src.js, mainJs)
-                    gulp.watch([src.scss, src.css], gulp.series([devCSS]));
+    const watcher = gulp.watch(src.js + '/*.js', mainJs)
+                    gulp.watch(src.scss + "/*.scss", devSCSS)
+                    gulp.watch(src.css + '/*.css', gulp.series([ devCSS ]))
+
     watcher.on('change', (event) => {
         log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 };
 
-gulp.task('default', gulp.series([ devCSS ]));
+gulp.task('watch', gulp.series([ watch ]));
 
-gulp.task('watch', watch);
+gulp.task('default', gulp.series([ devCSS ]));
 
 gulp.task('build', gulp.series([ criticalCSS ]));
 
-gulp.task('vendor', gulp.series([ mainJs, vendorCSS, vendorJS, revHead, revFooter ]));
+gulp.task('vendor', gulp.series([ vendorJS, vendorCSS ]));

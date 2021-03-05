@@ -1,0 +1,38 @@
+.hamburger-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.hamburger-inner {
+  width: 100%;
+  background: var(--background);
+  height: 8px;
+  display: inline-block;
+  border-radius: 5px;
+  position: relative;
+  filter: darkness(110%);
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  border-radius: 5px;
+  display: inline-block;
+  height: 8px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  background: var(--background);
+}
+
+.hamburger-inner::before {
+  top: -16px;
+}
+
+.hamburger-inner::after {
+  bottom: -16px;
+}
+

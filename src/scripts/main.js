@@ -31,7 +31,7 @@ const focusableElements = `
   [tabindex]:not([tabindex="-1"]):not([disabled]), 
   details:not([disabled]), 
   summary:not(:disabled)`;
-const handleFocusIn = (e) => {
+const handleFocusInStas = (event) => {
     //const nodeList: Element[] = []
     //if(e.key === 'Tab') {
     //['.main-nav'].forEach(selector => {

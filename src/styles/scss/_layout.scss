@@ -1,0 +1,275 @@
+@import 'link';
+
+/* Page Layout - Header, Main, Footer */
+body {
+  display: grid;
+  max-width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  grid-template-areas:
+    "actions"
+    "head"
+    "main" /*  45 - 70 characters wide */
+    "foot";
+  grid-template-rows: 80px 12em 1fr 12em;
+  grid-template-columns: 100vw;
+}
+
+.action-bar {
+  grid-area: actions;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: var(--bg);
+  display: flex;
+  flex-direction: row;
+  padding: 15px 1em;
+  align-items: center;
+}
+
+.action-bar *:focus, footer *:focus, header *:focus, .nav-main *:focus {
+  outline: dashed 3px var(--foreground);
+}
+
+.action-bar button.menu {
+  background: var(--green);
+  border: 1px solid var(--bglighter);
+  color: var(--nav-bg-color);
+  padding: 5px 10px;
+  width: 75px;
+  height: 55px;
+  border-radius: 4px;
+}
+
+header {
+  grid-area: head;
+  background-color: var(--bgdarker);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+  @include link_color(var(--purple), var(--purple), var(--purple), var(--purple));
+
+  /* Site Title */
+  a.site-title {
+    text-decoration: none;
+    color: var(--purple) !important;
+    padding: 20px 50px;
+    background-color: var(--bg);
+  }
+}
+
+nav *:focus {
+  outline: 3px dashed var(--foreground);
+}
+
+main {
+  grid-area: main;
+  display: grid;
+  position: relative;
+  max-width: 100vw;
+  grid-template-areas: "section";
+  grid-template-columns: 1fr;
+  background-color: var(--main-bg-color);
+}
+
+footer {
+  grid-area: foot;
+  background-color: var(--bgdark);
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 2em 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+  @include link_color(var(--purple),var(--purple),var(--purple),var(--purple));
+
+  & :first-child {
+    justify-self: end;
+  }
+
+  & .footer-first {
+    display: flex;
+    justify-content: flex-end;
+    & small {
+      text-align: right;
+    }
+  }
+
+  & .footer-last {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+footer > div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+body.modal-open,
+body.main-nav-open {
+  overflow: hidden !important;
+}
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background-color: var(--bgdarker) !important;
+}
+/* Navigation */
+
+nav > ul {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul > li.active,
+nav > ul > li.active a {
+  color: var(--bgdarker);
+  background: var(--purple);
+}
+
+nav.main-nav > ul > li {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+  padding: 10px 1em;
+}
+
+nav a,
+nav a:visited,
+nav a:hover,
+nav a:focus {
+  font-size: 1.1em;
+  color: var(--purple);
+}
+nav.main-nav {
+  position: fixed;
+  opacity: 0;
+  transition: 300ms;
+  top: 80px;
+  left: -100vw;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: var(--bgdarker);
+  transition: opacity, left, 300ms ease-in-out;
+}
+
+
+nav > ul {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 2em 0;
+}
+
+nav > ul > li.active,
+nav > ul > li.active a {
+  color: var(--red);
+  background: var(--nav-color);
+}
+
+nav.main-nav > ul > li {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+  padding: 10px 1em;
+}
+
+nav a,
+nav a:visited,
+nav a:hover,
+nav a:focus {
+  font-size: 1em;
+  color: var(--purple);
+}
+
+nav.main-nav.active {
+  opacity: 1;
+  transform: translateX(100vw);
+}
+
+nav.main-nav ul li, .action-bar {
+  padding: 0 4vw;
+}
+
+@media screen and (min-width: 500px) {
+nav.main-nav ul li, .action-bar {
+    padding: 0 10vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+nav.main-nav ul li, .action-bar {
+    padding: 0 20vw;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+nav.main-nav ul li, .action-bar {
+    padding: 0  15vw;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+nav.main-nav ul li, .action-bar {
+    padding: 0 25vw;
+  }
+}
+
+main > section {
+  padding: 2vw 4vw;
+  grid-area: section;
+  min-width: 100%;
+}
+
+@media screen and (min-width: 500px) {
+  main > section {
+    padding: 2vw 10vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  main > section {
+    padding: 4vw 20vw;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  main > section {
+    padding: 6vw 15vw;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  main > section {
+    padding: 8vw 25vw;
+  }
+}
+
+
+
+
+

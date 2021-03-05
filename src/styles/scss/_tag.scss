@@ -1,0 +1,36 @@
+
+a.tag,
+a.category {
+  padding: 5px 15px;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+a.category {
+  background: var(--red);
+}
+
+a.category,
+a.category:visited,
+a.category:hover,
+a.category:active {
+  color: var(--bgdarker)
+}
+
+a.tag {
+  background: var(--purple);
+}
+
+a.tag,
+a.tag:visited,
+a.tag:hover,
+a.tag:active {
+  color: var(--bgdarker)
+}
+
+.tags-list {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}

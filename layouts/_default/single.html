@@ -1,8 +1,10 @@
 {{ define "main" }}
 
+{{- partial "tags-links-items.html" . -}}
 <article>
   <h1 class="upper">{{ .Title }}</h1>
   {{ .Content }}
 </article>
+{{- partial "tags-links-items.html" . -}}
 
 {{ end }}

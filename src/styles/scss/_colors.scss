@@ -1,0 +1,97 @@
+:root
+{
+--fg        :#F8F8F2;
+--bglighter :#424450;
+--bglight   :#343746;
+--bg        :#282A36;
+--bgdark    :#21222C;
+--bgdarker  :#191A21;
+--comment   :#6272A4;
+--selection :#44475A;
+--subtle    :#424450;
+--cyan      :#8BE9FD;
+--green     :#50FA7B;
+--orange    :#FFB86C;
+--pink      :#FF79C6;
+--purple    :#BD93F9;
+--red       :#FF5555;
+--yellow    :#F1FA8C;
+
+  --background: #282A36;
+  --comment:    #6272A4;
+  --foreground: #F8F8F2;
+  --selection:  #44475A;
+
+  --cyan:       #8BE9FD;
+  --green:      #50FA7B;
+  --orange:     #FFB86C;
+  --pink:       #FF79C6;
+  --purple:     #BD93F9;
+  --red:        #FF5555;
+  --yellow:     #F1FA8C;
+
+  /* Transparency */
+
+  /** 30% of transparency **/
+  --background-30: #282A3633;
+  --comment-30:    #6272A433;
+  --foreground-30: #F8F8F233;
+  --selection-30:  #44475A33;
+
+  --cyan-30:       #8BE9FD33;
+  --green-30:      #50FA7B33;
+  --orange-30:     #FFB86C33;
+  --pink-30:       #FF79C633;
+  --purple-30:     #BD93F933;
+  --red-30:        #FF555533;
+  --yellow-30:     #F1FA8C33;
+
+  /** 40% of transparency **/
+  --background-40: #282A3666;
+  --comment-40:    #6272A466;
+  --foreground-40: #F8F8F266;
+  --selection-40:  #44475A66;
+
+  --cyan-40:       #8BE9FD66;
+  --green-40:      #50FA7B66;
+  --orange-40:     #FFB86C66;
+  --pink-40:       #FF79C666;
+  --purple-40:     #BD93F966;
+  --red-40:        #FF555566;
+  --yellow-40:     #F1FA8C66;
+
+
+
+  --a: mediumspringgreen;
+  --m: mediumslateblue;
+  --c: deeppink;
+  --d: darkviolet;
+  --n: darkorchid;
+  --e: dodgerblue;
+  --f: fuchsia;
+  --o: hotpink;
+  --g: chartreuse;
+  --h: crimson;
+  --i: yellow;
+  --j: black;
+  --k: white;
+  --l: dimgrey;
+
+  --body-bg-color: rgb(255, 255, 255);
+  --body-color: #2c2c2c;
+
+  --header-bg-color: #e1e1e1;
+  --toggle-bg-color: #e1e1e1;
+  --main-bg-color: #fff;
+  --footer-bg-color: #e1e1e1;
+  --nav-bg-color: #32425c;
+  --nav-color: #fff;
+  --pre-bg-color: #f5f5f5;
+  --table-bg-color: #e1e1e1;
+  --thead-bg-color: #d2d2d2;
+  --body-font-size: 16px;
+
+  --link-visited-color: #07398c;
+  --link-color: #1167ef;
+  --link-hover-color: #011225;
+}

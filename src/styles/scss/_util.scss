@@ -1,0 +1,28 @@
+
+//for programatic use only. 
+*[data-hidden] {
+  visibility: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.vertical-bar {
+  width: 3px;
+  height: 2em;
+  margin: 0 1em;
+  background-color: currentColor;
+}
+
+.lower {
+  text-transform: lowercase;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.caps {
+  text-transform: capitalize;
+}

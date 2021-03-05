@@ -1,7 +1,5 @@
-<div>
-  {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
-  {{ range $key, $value := $taxonomy }}
-  <a class="{{$taxonomyname | singularize}}" href="{{$value.Page.URL}}"> <span>{{ $key }} </span></a>
+<ul class="tags-list">
+  {{ range (.GetTerms "tags") }}
+  <li><a class="tag" href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
   {{ end }}
-  {{ end }}
-</div>
+</ul>

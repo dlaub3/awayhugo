@@ -15,7 +15,7 @@
 <body>
   <div id="skip"><a href="#content">Skip to Main Content</a></div>
   <div class="action-bar">
-    <button onclick="toggleMainNav()" class="menu hamburger hamburger--collapse">
+    <button aria-label="toggle main menu" onclick="toggleMainNav()" class="menu hamburger hamburger--collapse">
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
@@ -25,11 +25,15 @@
   <nav class="main-nav hidden" aria-hidden="true">
     <ul>
       {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
-      {{if eq $taxonomyname "tags"}}
+      {{if eq $taxonomyname "categories"}}
       {{ range $key, $value := $taxonomy }}
       <li class="upper">
         <strong>
-          <a id="{{$key}}" href="{{$value.Page.Permalink}}"> <span>{{ $key }} </span></a>
+          <a id="{{$key}}" href="{{$value.Page.Permalink}}">
+            <span>
+              {{ $value.Page.LinkTitle }}
+            </span>
+          </a>
         </strong>
       </li>
       {{ end }}
