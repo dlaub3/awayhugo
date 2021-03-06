@@ -1,4 +1,4 @@
-.hamburger-box {
+.hamburger-outer {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -13,7 +13,6 @@
   display: inline-block;
   border-radius: 5px;
   position: relative;
-  filter: darkness(110%);
 }
 
 .hamburger-inner::before,
@@ -35,4 +34,3 @@
 .hamburger-inner::after {
   bottom: -16px;
 }
-

@@ -1,3 +1,10 @@
+.tag-list,
+.category-list {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
 
 a.tag,
 a.category {
@@ -7,6 +14,7 @@ a.category {
 }
 
 a.category {
+  color: var(--bgdarker);
   background: var(--red);
 }
 
@@ -14,10 +22,11 @@ a.category,
 a.category:visited,
 a.category:hover,
 a.category:active {
-  color: var(--bgdarker)
+  color: var(--bgdarker);
 }
 
 a.tag {
+  color: var(--bgdarker);
   background: var(--purple);
 }
 
@@ -25,12 +34,5 @@ a.tag,
 a.tag:visited,
 a.tag:hover,
 a.tag:active {
-  color: var(--bgdarker)
-}
-
-.tags-list {
-  list-style-type: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
+  color: var(--bgdarker);
 }

@@ -27,7 +27,8 @@
     "dev": "node_modules/.bin/gulp watch & tsc --watch & cd ../.. && hugo server --watch --ignoreCache --config config.dev.toml",
     "prod": "node_modules/.bin/gulp watch & cd ../.. && hugo server --watch",
     "build": "node_modules/.bin/gulp build & cd ../.. && hugo server --watch",
-    "vendor": "node_modules/.bin/gulp vendor"
+    "vendor": "node_modules/.bin/gulp vendor",
+    "prettier": "node_modules/.bin/prettier --list-different --write 'src/styles/**/*.{scss,css}'"
   },
   "author": "",
   "license": "ISC",

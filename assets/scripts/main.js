@@ -1,4 +1,28 @@
-"use strict";const toggleClassList=t=>{const{target:e,classList:o}=t;e.forEach(t=>{for(const e of document.querySelectorAll(t))o.forEach(t=>e.classList.toggle(t))})},toggleAttribute=t=>{const{target:e,attributeList:a}=t;e.forEach(t=>{for(const o of document.querySelectorAll(t))a.forEach(t=>{var e=o.getAttribute(t);null===e&&o.toggleAttribute(t);e=null===e||"false"===e?"true":"false";o.setAttribute(t,e)})})},focusableElements=`
+"use strict";
+const toggleClassList = (args) => {
+    const { target, classList } = args;
+    target.forEach(selector => {
+        for (const node of document.querySelectorAll(selector)) {
+            classList.forEach(className => node.classList.toggle(className));
+        }
+    });
+};
+const toggleAttribute = (args) => {
+    const { target, attributeList } = args;
+    target.forEach(selector => {
+        for (const node of document.querySelectorAll(selector)) {
+            attributeList.forEach(attribue => {
+                const value = node.getAttribute(attribue);
+                if (value === null) {
+                    node.toggleAttribute(attribue);
+                }
+                const newValue = value === null ? 'true' : value === 'false' ? 'true' : 'false';
+                node.setAttribute(attribue, newValue);
+            });
+        }
+    });
+};
+const focusableElements = `
   button:not([disabled]), 
   [href], 
   input:not([disabled]), 
@@ -6,4 +30,51 @@
   textarea:not([disabled]), 
   [tabindex]:not([tabindex="-1"]):not([disabled]), 
   details:not([disabled]), 
-  summary:not(:disabled)`,handleFocusInStas=t=>{},toggleMainNav=()=>{var t=[".main-nav"];if(toggleClassList({target:["body"],classList:["main-nav-open"]}),toggleClassList({target:t,classList:["active","hidden"]}),toggleAttribute({target:t,attributeList:["aria-hidden"]}),(null===(t=document.querySelector(".main-nav"))||void 0===t?void 0:t.classList.contains("active"))||!1){for(const e of document.querySelectorAll(focusableElements))e.setAttribute("data-hidden","true");for(const o of[document.querySelector(".menu"),...document.querySelector(".main-nav").querySelectorAll(focusableElements)])o.removeAttribute("data-hidden")}else for(const a of document.querySelectorAll("[data-hidden]"))a.removeAttribute("data-hidden")};
+  summary:not(:disabled)`;
+const handleFocusInStas = (event) => {
+    //const nodeList: Element[] = []
+    //if(e.key === 'Tab') {
+    //['.main-nav'].forEach(selector => {
+    //for(const node of document.querySelectorAll(selector)) {
+    //nodeList.push(document.querySelector('.menu')!, ...node.querySelectorAll(focusableElements)!) 
+    //}
+    //}) 
+    //const first = nodeList[0] as HTMLElement
+    //const last = nodeList[nodeList.length -1] as HTMLElement
+    //if(!document.querySelector('.main-nav')?.contains(document.activeElement)) {
+    //first.focus()
+    //e.preventDefault()
+    //}
+    //if(e.target === last && !e.shiftKey) {
+    //first.focus() 
+    //e.preventDefault()
+    //}
+    //if(e.shiftKey && e.target === first) {
+    //last.focus() 
+    //e.preventDefault()
+    //} 
+    //}
+};
+const toggleMainNav = () => {
+    var _a;
+    /* TODO fix focus trap Daniel Laubacher  Sun 28 Feb 2021 **/
+    const target = ['#main-nav'];
+    toggleClassList({ target: ['body'], classList: ['overflow-hidden'] });
+    toggleClassList({ target, classList: ['active', 'hidden'] });
+    toggleAttribute({ target, attributeList: ['aria-hidden'] });
+    const isActive = ((_a = document.querySelector('#main-nav')) === null || _a === void 0 ? void 0 : _a.classList.contains('active')) || false;
+    if (isActive) {
+        for (const node of document.querySelectorAll(focusableElements)) {
+            node.setAttribute('data-hidden', "true");
+        }
+        const focusableNodes = [document.querySelector('#toggle-main-nav'), ...document.querySelector('#main-nav').querySelectorAll(focusableElements)];
+        for (const node of focusableNodes) {
+            node.removeAttribute('data-hidden');
+        }
+    }
+    else {
+        for (const node of document.querySelectorAll('[data-hidden]')) {
+            node.removeAttribute('data-hidden');
+        }
+    }
+};

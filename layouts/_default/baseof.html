@@ -13,35 +13,34 @@
 {{ end }}
 
 <body>
-  <div id="skip"><a href="#content">Skip to Main Content</a></div>
-  <div class="action-bar">
-    <button aria-label="toggle main menu" onclick="toggleMainNav()" class="menu hamburger hamburger--collapse">
-      <span class="hamburger-box">
+  <div id="skip"><a href="#main">Skip to Main Content</a></div>
+  <div id="top-bar">
+    <button id="toggle-main-nav" class="hamburger" aria-label="toggle main nav" onclick="toggleMainNav()">
+      <span class="hamburger-outer">
         <span class="hamburger-inner"></span>
       </span>
     </button>
   </div>
   {{- partial "header.html" . -}}
-  <nav class="main-nav hidden" aria-hidden="true">
+  <nav id="main-nav" class="hidden" aria-hidden="true">
     <ul>
       {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
       {{if eq $taxonomyname "categories"}}
       {{ range $key, $value := $taxonomy }}
-      <li class="upper">
-        <strong>
+      <li>
           <a id="{{$key}}" href="{{$value.Page.Permalink}}">
-            <span>
+        <strong>
               {{ $value.Page.LinkTitle }}
-            </span>
-          </a>
         </strong>
+          </a>
       </li>
       {{ end }}
       {{ end }}
       {{ end }}
     </ul>
   </nav>
-  <main id="content">
+ <!-- try to use the page type here -->
+  <main>
     <section>
       {{- block "main" . }}{{- end }}
     </section>

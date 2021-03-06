@@ -1,7 +1,5 @@
-
-//for programatic use only. 
-*[data-hidden] {
-  visibility: hidden;
+.overflow-hidden {
+  overflow: hidden !important;
 }
 
 .hidden {

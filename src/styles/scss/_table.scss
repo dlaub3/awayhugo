@@ -1,0 +1,18 @@
+table,
+pre {
+  overflow-x: auto;
+}
+
+thead {
+  background: var(--thead-bg-color);
+}
+th,
+td {
+  padding: 1vw;
+  border: 1px solid;
+}
+
+table {
+  background: var(--table-bg-color);
+  border: 1px solid;
+}

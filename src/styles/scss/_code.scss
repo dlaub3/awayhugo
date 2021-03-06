@@ -1,5 +1,6 @@
-article {
-  margin-bottom: 3em;
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background-color: var(--bgdarker) !important;
 }
 
 pre,
@@ -21,14 +22,4 @@ li > code,
 p > code {
   padding-left: 10px;
   padding-right: 10px;
-}
-
-blockquote {
-  background: var(--pre-bg-color);
-  border-left: 0.1em solid;
-  padding: 0.5em 1.5em;
-}
-
-cite {
-  font-size: 0.9em;
 }

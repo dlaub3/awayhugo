@@ -70,19 +70,19 @@ const handleFocusInStas = (event: KeyboardEvent) => {
 
 const toggleMainNav = () => {
   /* TODO fix focus trap Daniel Laubacher  Sun 28 Feb 2021 **/
-  const target = ['.main-nav']
-  toggleClassList({target: ['body'], classList: ['main-nav-open']})
+  const target = ['#main-nav']
+  toggleClassList({target: ['body'], classList: ['overflow-hidden']})
   toggleClassList({target, classList: ['active', 'hidden']})
   toggleAttribute({target, attributeList: ['aria-hidden']})
 
-  const isActive = document.querySelector('.main-nav')?.classList.contains('active') || false
+  const isActive = document.querySelector('#main-nav')?.classList.contains('active') || false
 
   if(isActive) {
     for(const node of document.querySelectorAll(focusableElements)) {
       node.setAttribute('data-hidden', "true")
     }
 
-    const focusableNodes = [document.querySelector('.menu'), ...document.querySelector('.main-nav')!.querySelectorAll(focusableElements)]
+    const focusableNodes = [document.querySelector('#toggle-main-nav'), ...document.querySelector('#main-nav')!.querySelectorAll(focusableElements)]
 
     for(const node of focusableNodes) {
       node!.removeAttribute('data-hidden')

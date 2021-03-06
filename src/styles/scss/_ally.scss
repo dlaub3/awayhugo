@@ -1,3 +1,10 @@
+//for programatic use only.
+//hidden from tabindex
+//but still animates
+*[data-hidden] {
+  visibility: hidden;
+}
+
 #skip {
   z-index: 5;
   position: fixed;
