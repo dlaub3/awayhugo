@@ -13,7 +13,7 @@
 {{ end }}
 
 <body>
-  <div id="skip"><a href="#main">Skip to Main Content</a></div>
+  <div id="skip"><a href="#content">Skip to Main Content</a></div>
   <div id="top-bar">
     <button id="toggle-main-nav" class="hamburger" aria-label="toggle main nav" onclick="toggleMainNav()">
       <span class="hamburger-outer">
@@ -28,19 +28,17 @@
       {{if eq $taxonomyname "categories"}}
       {{ range $key, $value := $taxonomy }}
       <li>
-          <a id="{{$key}}" href="{{$value.Page.Permalink}}">
-        <strong>
-              {{ $value.Page.LinkTitle }}
-        </strong>
-          </a>
+        <a id="{{$key}}" href="{{$value.Page.Permalink}}">
+          {{ $value.Page.LinkTitle }}
+        </a>
       </li>
       {{ end }}
       {{ end }}
       {{ end }}
     </ul>
   </nav>
- <!-- try to use the page type here -->
-  <main>
+  <!-- try to use the page type here -->
+  <main id="content">
     <section>
       {{- block "main" . }}{{- end }}
     </section>

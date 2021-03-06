@@ -2,12 +2,18 @@
 .category-list {
   list-style-type: none;
   display: flex;
+  flex-flow: row wrap;
   margin: 0;
   padding: 0;
+
+  li {
+      margin: 0.5em 0;
+  }
 }
 
 a.tag,
 a.category {
+  text-transform: uppercase;
   padding: 5px 15px;
   margin: 5px;
   border-radius: 4px;
