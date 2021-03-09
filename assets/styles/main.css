@@ -336,6 +336,20 @@ header {
   header *:focus {
     outline: dashed 3px #f8f8f2;
     outline: dashed 3px var(--foreground); }
+
+@-webkit-keyframes blink {
+  0% {
+    background: inherit; }
+  100% {
+    background: #424450;
+    background: var(--bglighter); } }
+
+@keyframes blink {
+  0% {
+    background: inherit; }
+  100% {
+    background: #424450;
+    background: var(--bglighter); } }
   header .site-title {
     text-decoration: none;
     font-weight: bold;
@@ -348,6 +362,12 @@ header {
     header .site-title span:last-of-type, header .site-title span:first-of-type {
       color: #50fa7b;
       color: var(--green); }
+    header .site-title span:nth-last-child(0n + 2) {
+      background: #424450;
+      background: var(--bglighter); }
+    header .site-title:hover span:nth-last-child(0n + 2) {
+      -webkit-animation: blink 1s infinite;
+              animation: blink 1s infinite; }
 
 #main-nav {
   position: fixed;
