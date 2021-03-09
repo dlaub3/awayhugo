@@ -303,6 +303,12 @@ header {
     color: var(--purple); }
   header *:focus {
     outline: dashed 3px var(--foreground); }
+
+@keyframes blink {
+  0% {
+    background: inherit; }
+  100% {
+    background: var(--bglighter); } }
   header .site-title {
     text-decoration: none;
     font-weight: bold;
@@ -312,6 +318,10 @@ header {
     background-color: var(--bg); }
     header .site-title span:last-of-type, header .site-title span:first-of-type {
       color: var(--green); }
+    header .site-title span:nth-last-child(0n + 2) {
+      background: var(--bglighter); }
+    header .site-title:hover span:nth-last-child(0n + 2) {
+      animation: blink 1s infinite; }
 
 #main-nav {
   position: fixed;

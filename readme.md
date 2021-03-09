@@ -9,4 +9,9 @@
 - [ ] add post contents menu
 - [ ] add reading progress bar
 - [ ] add related tag section
-- [ ] fix revDel of main.js
+- [ ] fix table styles 
+- [ ] fix inline code styles 
+- [ ] better scrollbars 
+- [ ] pre-load links
+- [ ] images
+- [ ] SEO 
