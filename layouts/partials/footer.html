@@ -19,8 +19,8 @@
   <script src="{{ $vendorJs.Permalink }}"></script>
   <script src="{{ $mainJs.Permalink }}"></script>
   {{ else }}
-  {{ $mainJs := resources.Get "scripts/main.js" | js.Build "main.js" | minify | fingerprint }}
-  {{ $vendorJs := resources.Get "vendor/vendor.js" | js.Build "vendor.js" | minify | fingerprint }}
+  {{ $mainJs := resources.Get "scripts/main.js" | minify | fingerprint }}
+  {{ $vendorJs := resources.Get "vendor/vendor.js" | minify | fingerprint }}
   <script src="{{ $vendorJs.Permalink }}"></script>
   <script src="{{ $mainJs.Permalink }}"></script>
   {{ end }}

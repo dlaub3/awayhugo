@@ -71,7 +71,7 @@ const devCSS = () => {
 
 const criticalCSS = () => {
     return gulp.src(src.css + '/*.css')
-    .pipe(postcss(plugins))
+    .pipe(postcss([...plugins, cssnano]))
     .pipe(replace(/(^)/g, '<style>\n$1'))
     .pipe(replace(/($)/g, '\n</style>$1'))
     .pipe(rename({
