@@ -34,8 +34,6 @@ const plugins = [
     autoprefixer(),
 ];
 
-console.log(dest)
-
 const vendorCSS = () => {
     return gulp.src(src.vendorCSS + '/*.css')
         .pipe(concat('vendor.css'))
