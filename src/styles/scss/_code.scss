@@ -1,25 +1,25 @@
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-  background-color: var(--bgdarker) !important;
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+    background-color: var(--bgdarker) !important;
 }
 
 pre,
 li > code,
 p > code {
-  background-color: var(--pre-bg-color);
-  border: 1px solid;
-  font-size: 0.8em;
-  white-space: pre;
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  text-align: left;
-  white-space: pre-line;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
+    background-color: var(--pre-bg-color);
+    border: 1px solid;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.8em;
+    text-align: left;
+    white-space: pre;
+    white-space: pre-line;
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
 }
 
 li > code,
 p > code {
-  padding-left: 10px;
-  padding-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }

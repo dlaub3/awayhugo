@@ -1,44 +1,44 @@
 .tag-list,
 .category-list {
-  list-style-type: none;
-  display: flex;
-  flex-flow: row wrap;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 
-  li {
-      margin: 0.5em 0;
-  }
+    li {
+        margin: 0.5em 0;
+    }
 }
 
 a.tag,
 a.category {
-  text-transform: uppercase;
-  padding: 5px 15px;
-  margin: 5px;
-  border-radius: 4px;
+    border-radius: 4px;
+    margin: 5px;
+    padding: 5px 15px;
+    text-transform: uppercase;
 }
 
 a.category {
-  color: var(--bgdarker);
-  background: var(--red);
+    background: var(--red);
+    color: var(--bgdarker);
 }
 
 a.category,
 a.category:visited,
 a.category:hover,
 a.category:active {
-  color: var(--bgdarker);
+    color: var(--bgdarker);
 }
 
 a.tag {
-  color: var(--bgdarker);
-  background: var(--purple);
+    background: var(--purple);
+    color: var(--bgdarker);
 }
 
 a.tag,
 a.tag:visited,
 a.tag:hover,
 a.tag:active {
-  color: var(--bgdarker);
+    color: var(--bgdarker);
 }

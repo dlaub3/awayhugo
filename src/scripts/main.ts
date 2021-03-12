@@ -1,4 +1,3 @@
-
 const toggleClassList = (args: { target: string[], classList: string[]}) => {
     const { target, classList } = args
 
@@ -35,38 +34,6 @@ const focusableElements = `
   [tabindex]:not([tabindex="-1"]):not([disabled]), 
   details:not([disabled]), 
   summary:not(:disabled)`
-
-
-const handleFocusInStasts = (event: KeyboardEvent) => {
-  //const nodeList: Element[] = []
-
-
-  //if(e.key === 'Tab') {
-    //['.main-nav'].forEach(selector => {
-      //for(const node of document.querySelectorAll(selector)) {
-         //nodeList.push(document.querySelector('.menu')!, ...node.querySelectorAll(focusableElements)!) 
-      //}
-    //}) 
-
-    //const first = nodeList[0] as HTMLElement
-    //const last = nodeList[nodeList.length -1] as HTMLElement
-
-    //if(!document.querySelector('.main-nav')?.contains(document.activeElement)) {
-        //first.focus()
-        //e.preventDefault()
-    //}
-
-    //if(e.target === last && !e.shiftKey) {
-       //first.focus() 
-        //e.preventDefault()
-    //}
-
-    //if(e.shiftKey && e.target === first) {
-       //last.focus() 
-        //e.preventDefault()
-    //} 
-  //}
-}
 
 const toggleMainNav = () => {
   /* TODO fix focus trap Daniel Laubacher  Sun 28 Feb 2021 **/

@@ -1,26 +1,26 @@
 .overflow-hidden {
-  overflow: hidden !important;
+    overflow: hidden !important;
 }
 
 .hidden {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .vertical-bar {
-  width: 3px;
-  height: 2em;
-  margin: 0 1em;
-  background-color: currentColor;
+    background-color: currentColor;
+    height: 2em;
+    margin: 0 1em;
+    width: 3px;
 }
 
 .lower {
-  text-transform: lowercase;
+    text-transform: lowercase;
 }
 
 .upper {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .caps {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }

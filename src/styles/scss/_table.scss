@@ -1,18 +1,19 @@
 table,
 pre {
-  overflow-x: auto;
+    overflow-x: auto;
 }
 
 thead {
-  background: var(--thead-bg-color);
+    background: var(--thead-bg-color);
 }
+
 th,
 td {
-  padding: 1vw;
-  border: 1px solid;
+    border: 1px solid;
+    padding: 1vw;
 }
 
 table {
-  background: var(--table-bg-color);
-  border: 1px solid;
+    background: var(--table-bg-color);
+    border: 1px solid;
 }

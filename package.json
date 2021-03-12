@@ -16,7 +16,10 @@
     "node-sass": "^5.0.0",
     "npm": "^6.3.0",
     "precss": "^3.1.2",
-    "prettier": "1.13.7",
+    "prettier": "^1.13.7",
+    "stylelint": "^13.12.0",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^21.0.0",
     "typescript": "4.1"
   },
   "scripts": {
@@ -25,7 +28,8 @@
     "prod": "node_modules/.bin/gulp watch & cd ../.. && hugo server --watch",
     "build": "node_modules/.bin/gulp build & cd ../.. && hugo server --watch",
     "vendor": "node_modules/.bin/gulp vendor",
-    "prettier": "node_modules/.bin/prettier --list-different --write 'src/styles/**/*.{scss,css}'"
+    "prettier": "node_modules/.bin/prettier --list-different --write 'src/styles/**/*.{scss,css}'",
+    "stylelint": "node_modules/.bin/stylelint --fix 'src/styles/**/*.{scss,css}'"
   },
   "author": "",
   "license": "ISC",

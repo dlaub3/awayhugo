@@ -2,43 +2,44 @@
 //hidden from tabindex
 //but still animates
 *[data-hidden] {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 #skip {
-  z-index: 5;
-  position: fixed;
-  top: 0;
-  left: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 5;
 }
 
 #skip a,
 #skip a:visited,
 #skip a:active,
 #skip a:hover {
-  position: absolute;
-  left: -10000px;
-  overflow: hidden;
-  transition: all 300ms;
-  color: var(--foreground);
+    color: var(--foreground);
+    left: -10000px;
+    overflow: hidden;
+    position: absolute;
+    transition: all 300ms;
 }
 
 @keyframes skip {
-  from {
-    position: absolute;
-  }
-  to {
-    position: static;
-  }
+    from {
+        position: absolute;
+    }
+
+    to {
+        position: static;
+    }
 }
 
 #skip a:focus {
-  margin: 20px 50px;
-  padding: 15px 20px;
-  background: var(--pink);
-  transition: all 300ms;
-  animation-fill-mode: both;
-  animation-delay: 300ms;
-  animation-name: skip;
-  outline-color: white;
+    animation-delay: 300ms;
+    animation-fill-mode: both;
+    animation-name: skip;
+    background: var(--pink);
+    margin: 20px 50px;
+    outline-color: white;
+    padding: 15px 20px;
+    transition: all 300ms;
 }
