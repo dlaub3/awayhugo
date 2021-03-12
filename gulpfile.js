@@ -3,9 +3,6 @@ const precss = require('precss');
 const gulp = require('gulp');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const rev = require('gulp-rev');
-const revDel = require('rev-del');
-const revReplace = require('gulp-rev-replace');
 const fs = require('fs');
 const path = require('path');
 const log = require('fancy-log');
@@ -13,9 +10,10 @@ const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const rename = require("gulp-rename");
 const replace = require('gulp-replace');
-const dirString = path.dirname(fs.realpathSync(__filename));
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
+
+const dirString = path.dirname(fs.realpathSync(__filename));
 
 const src = {
     scss: dirString + '/src/styles/scss',
@@ -35,6 +33,8 @@ const plugins = [
     precss(),
     autoprefixer(),
 ];
+
+console.log(dest)
 
 const vendorCSS = () => {
     return gulp.src(src.vendorCSS + '/*.css')
