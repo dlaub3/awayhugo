@@ -3,7 +3,8 @@ const toggleClassList = (args: { target: string[], classList: string[]}) => {
 
     target.forEach(selector => {
         for (const node of document.querySelectorAll(selector)) {
-          classList.forEach(className => node.classList.toggle(className))
+
+                classList.forEach(className => node.classList.toggle(className))
         }
     })
 }

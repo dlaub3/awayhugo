@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{{ if eq .Site.Params.env "dev" }}
-{{- partial "head.dev.html" . -}}
-{{ else }}
-
 <head>
   {{- partial "head.meta.html" . -}}
   {{- partial "head.critical.html" . -}}
   {{- partial "head.links.html" . -}}
 </head>
-{{ end }}
 
 <body>
   <div id="skip"><a href="#content">Skip to Main Content</a></div>

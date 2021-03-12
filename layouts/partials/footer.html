@@ -15,13 +15,9 @@
 
   {{ if eq .Site.Params.env "dev" }}
   {{ $mainJs := resources.Get "scripts/main.js" }}
-  {{ $vendorJs := resources.Get "vendor/vendor.js" }}
-  <script src="{{ $vendorJs.Permalink }}"></script>
   <script src="{{ $mainJs.Permalink }}"></script>
   {{ else }}
   {{ $mainJs := resources.Get "scripts/main.js" | minify | fingerprint }}
-  {{ $vendorJs := resources.Get "vendor/vendor.js" | minify | fingerprint }}
-  <script src="{{ $vendorJs.Permalink }}"></script>
   <script src="{{ $mainJs.Permalink }}"></script>
   {{ end }}
 </footer>

@@ -15,3 +15,6 @@
 - [ ] pre-load links
 - [ ] images
 - [ ] SEO 
+- [ ] build pipeline 
+ - [ ] prettier/stylelint/eslint 
+ - [ ] husky 
