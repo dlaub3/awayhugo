@@ -13,25 +13,19 @@
 
 {{ if eq .Site.Params.env "dev" }}
 {{ $mainCSS := resources.Get "styles/main.css" }}
-{{ $vendorCSS := resources.Get "vendor/vendor.css" }}
-{{ $vendorJs := resources.Get "vendor/vendor.js" }}
-<script src="{{ $vendorJs.Permalink  }}"></script>
-<link rel="stylesheet" href="{{ $vendorCSS.Permalink }}">
 <link rel="stylesheet" href="{{ $mainCSS.Permalink }}">
+{{ $vendorCSS := resources.Get "vendor/vendor.css" }}
+<link rel="stylesheet" href="{{ $vendorCSS.Permalink }}">
 {{ else }}
 {{ $mainCSS := resources.Get "styles/main.css" | resources.Fingerprint }}
-{{ $vendorCSS := resources.Get "vendor/vendor.css" | resources.Fingerprint }}
-{{ $vendorJs := resources.Get "vendor/vendor.js" | minify | fingerprint }}
-<script src="{{ $vendorJs.Permalink  }}"></script>
-
-<link rel="preload" href="{{ $vendorCSS.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript>
-  <link rel="stylesheet" href="{{ $vendorCSS.Permalink }}">
-</noscript>
-
 <link rel="preload" href="{{ $mainCSS.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
   <link rel="stylesheet" href="{{ $mainCSS.Permalink }}">
+</noscript>
+{{ $vendorCSS := resources.Get "vendor/vendor.css" | resources.Fingerprint }}
+<link rel="preload" href="{{ $vendorCSS.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="{{ $vendorCSS.Permalink }}">
 </noscript>
 {{ end }}
 

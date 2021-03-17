@@ -18,3 +18,5 @@
 - [ ] build pipeline 
  - [ ] prettier/stylelint/eslint 
  - [ ] husky 
+- [ ] inline critical JS/CSS
+- [ ] use css media preload instead of JS

@@ -178,7 +178,7 @@ var _self =
                         code: e.textContent,
                     }
                     function o(e) {
-                        ;(l.highlightedCode = e),
+                        (l.highlightedCode = e),
                             M.hooks.run('before-insert', l),
                             (l.element.innerHTML = l.highlightedCode),
                             M.hooks.run('after-highlight', l),
@@ -357,7 +357,7 @@ var _self =
                 Token: W,
             }
         function W(e, n, r, t) {
-            ;(this.type = e),
+            (this.type = e),
                 (this.content = n),
                 (this.alias = r),
                 (this.length = 0 | (t || '').length)
@@ -952,7 +952,7 @@ Prism.languages.clike = {
             RegExp(e, n)
         )
     }
-    ;(e.languages.docker = {
+    (e.languages.docker = {
         instruction: {
             pattern: /(^[ \t]*)(?:ADD|ARG|CMD|COPY|ENTRYPOINT|ENV|EXPOSE|FROM|HEALTHCHECK|LABEL|MAINTAINER|ONBUILD|RUN|SHELL|STOPSIGNAL|USER|VOLUME|WORKDIR)(?=\s)(?:\\.|[^\r\n\\])*(?:\\$(?:\s|#.*$)*(?![\s#])(?:\\.|[^\r\n\\])*)*/im,
             lookbehind: !0,
@@ -1768,14 +1768,14 @@ Prism.languages.lua = {
             },
         }),
         ['url', 'bold', 'italic', 'strike'].forEach(function(e) {
-            ;['url', 'bold', 'italic', 'strike'].forEach(function(n) {
+            ['url', 'bold', 'italic', 'strike'].forEach(function(n) {
                 e !== n &&
                     (u.languages.markdown[e].inside.content.inside[n] =
                         u.languages.markdown[n])
             })
         }),
         u.hooks.add('after-tokenize', function(n) {
-            ;('markdown' !== n.language && 'md' !== n.language) ||
+            ('markdown' !== n.language && 'md' !== n.language) ||
                 !(function n(e) {
                     if (e && 'string' != typeof e)
                         for (var t = 0, a = e.length; t < a; t++) {
@@ -2281,7 +2281,8 @@ Prism.languages.insertBefore('php', 'variable', {
         greedy: !0,
         inside: {
             interpolation: {
-                pattern: /((?:^|[^{])(?:{{)*){(?!{)(?:[^{}]|{(?!{)(?:[^{}]|{(?!{)(?:[^{}])+})+})+}/,
+                // FIXING Go TEMPLATE: {{"{{"}}
+                pattern: /((?:^|[^{])(?:{{"{{"}})*){(?!{)(?:[^{}]|{(?!{)(?:[^{}]|{(?!{)(?:[^{}])+})+})+}/,
                 lookbehind: !0,
                 inside: {
                     'format-spec': {
@@ -2348,7 +2349,7 @@ Prism.languages.insertBefore('php', 'variable', {
             RegExp(t, n)
         )
     }
-    ;(e = n(e).source),
+    (e = n(e).source),
         (o.languages.jsx = o.languages.extend('markup', t)),
         (o.languages.jsx.tag.pattern = n(
             '</?(?:[\\w.:-]+(?:<S>+(?:[\\w.:$-]+(?:=(?:"(?:\\\\[^]|[^\\\\"])*"|\'(?:\\\\[^]|[^\\\\\'])*\'|[^\\s{\'"/>=]+|<BRACES>))?|<SPREAD>))*<S>*/?)?>'
@@ -2443,7 +2444,7 @@ Prism.languages.insertBefore('php', 'variable', {
             }
         }
     o.hooks.add('after-tokenize', function(t) {
-        ;('jsx' !== t.language && 'tsx' !== t.language) || r(t.tokens)
+        ('jsx' !== t.language && 'tsx' !== t.language) || r(t.tokens)
     })
 })(Prism)
 !(function(e) {
@@ -2746,7 +2747,7 @@ Prism.languages.wasm = {
             if (c(t)) {
                 var n = 0
                 v('.line-highlight', t).forEach(function(e) {
-                    ;(n += e.textContent.length), e.parentNode.removeChild(e)
+                    (n += e.textContent.length), e.parentNode.removeChild(e)
                 }),
                     n &&
                         /^( \n)+$/.test(e.code.slice(-n)) &&
