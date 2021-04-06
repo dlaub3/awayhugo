@@ -6,11 +6,8 @@
 - [ ] improve responsive layout, -- remove non-relative sizing units
 - [ ] add nav menu for a series of posts 
 - [ ] setup footer scroll over/parallex
-- [x] add post contents menu
 - [ ] add reading progress bar
-- [x] add related tag section
 - [ ] fix table styles 
-- [x] fix inline code styles 
 - [ ] better scrollbars 
 - [ ] pre-load links
 - [ ] images
@@ -23,3 +20,4 @@
 - [ ] fix header spacing, especially for the outline section 
 - [ ] improve fonts 
 - [ ] improve hamburger button
+- [ ] audit page descriptions
