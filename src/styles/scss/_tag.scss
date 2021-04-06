@@ -6,6 +6,9 @@
     margin: 0;
     padding: 0;
 
+    li:first-of-type a {
+        margin-left: 0;
+    }
     li {
         margin: 0.5em 0;
     }
@@ -13,7 +16,7 @@
 
 a.tag,
 a.category {
-    border-radius: 4px;
+    border-radius: 0px;
     margin: 5px;
     padding: 5px 15px;
     text-transform: uppercase;

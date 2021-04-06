@@ -1,14 +1,19 @@
 {{ define "main" }}
-
-<aside>
-{{- partial "tags-links-items.html" . -}}
-</aside>
-<article>
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-</article>
-<aside>
-{{- partial "tags-links-items.html" . -}}
-</aside>
-
+<section>
+  <aside id="tags">
+    {{- partial "tags-links-items.html" . -}}
+  </aside>
+  {{ if and (gt (len .TableOfContents) 40) (eq .Page.Params.toc true) }}
+  <aside id="outline">
+    <h2>Outline</h2>
+    {{ .Page.TableOfContents }}
+  </aside>
+  {{ end }}
+  <article>
+    {{ .Content }}
+  </article>
+  <aside>
+    {{- partial "tags-links-items.html" . -}}
+  </aside>
+</section>
 {{ end }}

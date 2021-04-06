@@ -2,31 +2,11 @@ article {
     margin-bottom: 3em;
 }
 
-pre,
-li > code,
-p > code {
-    background-color: var(--pre-bg-color);
-    border: 1px solid;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    font-size: 0.8em;
-    text-align: left;
-    white-space: pre;
-    white-space: pre;
-    word-break: normal;
-    word-spacing: normal;
-    word-wrap: normal;
-}
-
-li > code,
-p > code {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 blockquote {
-    background: var(--pre-bg-color);
-    border-left: 0.1em solid;
+    background: rgb(240, 240, 240);
+    border-left: var(--body-color) 0.5em solid;
     padding: 0.5em 1.5em;
+    margin: 1em 0 2em;
 }
 
 cite {

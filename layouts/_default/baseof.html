@@ -3,8 +3,8 @@
 
 <head>
   {{- partial "head.meta.html" . -}}
-  {{- partial "head.critical.js.html" . -}}
   {{- partial "head.critical.css.html" . -}}
+  {{- partial "head.critical.js.html" . -}}
   {{- partial "head.links.html" . -}}
 </head>
 
@@ -16,6 +16,13 @@
         <span class="hamburger-inner"></span>
       </span>
     </button>
+    <a href="/" class="site-title">
+      <span>{</span>
+      {{ range $letter := split .Site.Title "" }}
+      <span>{{$letter}}</span>
+      {{end}}
+      <span>}</span>
+    </a>
   </div>
   {{- partial "header.html" . -}}
   <nav id="main-nav" class="hidden" aria-hidden="true">
@@ -34,9 +41,7 @@
     </ul>
   </nav>
   <main id="content">
-    <section>
-      {{- block "main" . }}{{- end }}
-    </section>
+    {{- block "main" . }}{{- end }}
   </main>
   {{- partial "footer.html" . -}}
 </body>

@@ -1,11 +1,3 @@
 <header>
-  <div>
-    <a href="/" class="site-title">
-      <span>{</span>
-      {{ range $letter := split .Site.Title "" }}
-      <span>{{$letter}}</span>
-      {{end}}
-      <span>}</span>
-    </a>
-  </div>
+  <h1>{{ .Title }}</h1>
 </header>

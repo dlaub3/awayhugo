@@ -6,11 +6,11 @@
 - [ ] improve responsive layout, -- remove non-relative sizing units
 - [ ] add nav menu for a series of posts 
 - [ ] setup footer scroll over/parallex
-- [ ] add post contents menu
+- [x] add post contents menu
 - [ ] add reading progress bar
-- [ ] add related tag section
+- [x] add related tag section
 - [ ] fix table styles 
-- [ ] fix inline code styles 
+- [x] fix inline code styles 
 - [ ] better scrollbars 
 - [ ] pre-load links
 - [ ] images
@@ -18,5 +18,8 @@
 - [ ] build pipeline 
  - [ ] prettier/stylelint/eslint 
  - [ ] husky 
-- [ ] inline critical JS/CSS
+ - [ ] inline critical JS/CSS
 - [ ] use css media preload instead of JS
+- [ ] fix header spacing, especially for the outline section 
+- [ ] improve fonts 
+- [ ] improve hamburger button

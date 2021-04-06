@@ -8,7 +8,7 @@
 
 .hamburger-inner {
     background: var(--background);
-    border-radius: 5px;
+    border-radius: 0px;
     display: inline-block;
     height: 8px;
     position: relative;
@@ -18,7 +18,7 @@
 .hamburger-inner::before,
 .hamburger-inner::after {
     background: var(--background);
-    border-radius: 5px;
+    border-radius: 0px;
     content: '';
     display: inline-block;
     height: 8px;

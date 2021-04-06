@@ -1,13 +1,17 @@
+// override code theme
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
     background-color: var(--bgdarker) !important;
+    border-radius: 0 !important;
 }
 
 pre,
 li > code,
 p > code {
-    background-color: var(--pre-bg-color);
-    border: 1px solid;
+    color: var(--cyan);
+    background-color: var(--bglighter);
+    border: var(--bgdark) 2px solid;
+    padding: 0.2em;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 0.8em;
     text-align: left;
