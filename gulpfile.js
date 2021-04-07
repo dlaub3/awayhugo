@@ -113,7 +113,7 @@ gulp.task('watch', gulp.series([watch]))
 
 gulp.task('default', gulp.series([devCSS]))
 
-gulp.task('build', gulp.series([criticalCSS]))
+gulp.task('build', gulp.series([criticalCSS, criticalJS, vendorJS, vendorCSS]))
 
 gulp.task('critical', gulp.series([criticalCSS, criticalJS]))
 
