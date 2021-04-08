@@ -399,6 +399,7 @@ body {
     padding: 0.1em 10px;
     height: calc(100% - 1em);
     width: 3.5em;
+    min-width: 55px;
     border-radius: 4px; }
     #top-bar .hamburger .hamburger-inner {
       border-radius: 4px; }
