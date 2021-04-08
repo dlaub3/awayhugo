@@ -18,11 +18,13 @@
 <link rel="stylesheet" href="{{ $vendorCSS.Permalink }}">
 {{ else }}
 {{ $mainCSS := resources.Get "styles/main.css" | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $mainCSS.Permalink }}">
 <link rel="preload" href="{{ $mainCSS.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
   <link rel="stylesheet" href="{{ $mainCSS.Permalink }}">
 </noscript>
 {{ $vendorCSS := resources.Get "vendor/vendor.css" | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $vendorCSS.Permalink }}">
 <link rel="preload" href="{{ $vendorCSS.Permalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
   <link rel="stylesheet" href="{{ $vendorCSS.Permalink }}">

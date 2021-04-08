@@ -37,7 +37,7 @@ const vendorCSS = () => {
     return gulp
         .src(src.vendorCSS + '/*.css')
         .pipe(concat('vendor.css'))
-        .pipe(postcss(plugins))
+        .pipe(postcss([...plugins, cssnano()]))
         .pipe(gulp.dest(dest.vendor))
 }
 
@@ -69,10 +69,17 @@ const devCSS = () => {
         .pipe(gulp.dest(dest.css))
 }
 
+const prodCSS = () => {
+    return gulp
+        .src(src.css + '/*.css')
+        .pipe(postcss([...plugins, cssnano()]))
+        .pipe(gulp.dest(dest.css))
+}
+
 const criticalCSS = () => {
     return gulp
         .src(src.critical + '/*.css')
-        .pipe(postcss([...plugins, cssnano]))
+        .pipe(postcss([...plugins, cssnano()]))
         .pipe(replace(/(^)/g, '<style>\n$1'))
         .pipe(replace(/($)/g, '\n</style>$1'))
         .pipe(
@@ -113,7 +120,10 @@ gulp.task('watch', gulp.series([watch]))
 
 gulp.task('default', gulp.series([devCSS]))
 
-gulp.task('build', gulp.series([criticalCSS, criticalJS, vendorJS, vendorCSS]))
+gulp.task(
+    'build',
+    gulp.series([criticalCSS, criticalJS, vendorJS, vendorCSS, prodCSS])
+)
 
 gulp.task('critical', gulp.series([criticalCSS, criticalJS]))
 

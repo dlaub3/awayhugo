@@ -8,9 +8,9 @@
 
 .hamburger-inner {
     background: var(--background);
-    border-radius: 0px;
+    border-radius: 2px;
     display: inline-block;
-    height: 8px;
+    height: 6px;
     position: relative;
     width: 100%;
 }
@@ -21,16 +21,17 @@
     border-radius: 0px;
     content: '';
     display: inline-block;
-    height: 8px;
+    height: 6px;
     left: 0;
     position: absolute;
     width: 100%;
+    border-radius: 2px;
 }
 
 .hamburger-inner::before {
-    top: -16px;
+    top: -12px;
 }
 
 .hamburger-inner::after {
-    bottom: -16px;
+    bottom: -12px;
 }
