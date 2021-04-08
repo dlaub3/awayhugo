@@ -112,9 +112,9 @@ header {
     left: -100vw;
     opacity: 0;
     overflow-y: scroll;
-    position: fixed;
+    position: absolute;
     right: 0;
-    top: 2.5em;
+    top: 0;
     transition: opacity, left, 300ms ease-in-out;
     z-index: 1;
 
