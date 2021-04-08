@@ -414,7 +414,7 @@ header {
   overflow-y: scroll;
   position: fixed;
   right: 0;
-  top: 80px;
+  top: 2.5em;
   transition: opacity, left, 300ms ease-in-out;
   z-index: 1; }
   #main-nav *:focus {
@@ -565,8 +565,6 @@ main > section {
     .post-list ul li .post-list-item:focus {
       background: var(--bgdarker);
       color: var(--purple); }
-    .post-list ul li .post-list-item:focus {
-      border: 3px solid dashed; }
     .post-list ul li .post-list-item h5 {
       background: var(--bg);
       margin-top: 0.5em; }
