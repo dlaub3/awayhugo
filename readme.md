@@ -21,3 +21,4 @@
 - [ ] improve fonts 
 - [ ] improve hamburger button
 - [ ] audit page descriptions
+- [ ] setup browser-sync for mobile testing
