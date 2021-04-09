@@ -211,49 +211,104 @@ h5 {
   font-size: 1.25em; }
 
 h1 {
-  margin-bottom: 1em;
-  margin-top: 2.5em; }
+  margin-top: 2em;
+  margin-bottom: 0.25em; }
 
 h1:target {
   margin-top: -2em;
-  padding-top: 4.6em;
+  padding-top: 4em;
   display: inline-block; }
 
+h1 a,
+h1 a:visited,
+h1 a:active {
+  display: inline;
+  color: inherit;
+  margin-left: 0.5em;
+  text-decoration: none; }
+
+h1 a:hover {
+  text-decoration: underline; }
+
 h2 {
-  margin-bottom: 1em;
-  margin-top: 2.5em; }
+  margin-top: 2em;
+  margin-bottom: 0.25em; }
 
 h2:target {
   margin-top: -2em;
-  padding-top: 4.6em;
+  padding-top: 4em;
   display: inline-block; }
 
+h2 a,
+h2 a:visited,
+h2 a:active {
+  display: inline;
+  color: inherit;
+  margin-left: 0.5em;
+  text-decoration: none; }
+
+h2 a:hover {
+  text-decoration: underline; }
+
 h3 {
-  margin-bottom: 1em;
-  margin-top: 2.5em; }
+  margin-top: 2em;
+  margin-bottom: 0.25em; }
 
 h3:target {
   margin-top: -2em;
-  padding-top: 4.6em;
+  padding-top: 4em;
   display: inline-block; }
 
+h3 a,
+h3 a:visited,
+h3 a:active {
+  display: inline;
+  color: inherit;
+  margin-left: 0.5em;
+  text-decoration: none; }
+
+h3 a:hover {
+  text-decoration: underline; }
+
 h4 {
-  margin-bottom: 1em;
-  margin-top: 2.5em; }
+  margin-top: 2em;
+  margin-bottom: 0.25em; }
 
 h4:target {
   margin-top: -2em;
-  padding-top: 4.6em;
+  padding-top: 4em;
   display: inline-block; }
 
+h4 a,
+h4 a:visited,
+h4 a:active {
+  display: inline;
+  color: inherit;
+  margin-left: 0.5em;
+  text-decoration: none; }
+
+h4 a:hover {
+  text-decoration: underline; }
+
 h5 {
-  margin-bottom: 1em;
-  margin-top: 2.5em; }
+  margin-top: 2em;
+  margin-bottom: 0.25em; }
 
 h5:target {
   margin-top: -2em;
-  padding-top: 4.6em;
+  padding-top: 4em;
   display: inline-block; }
+
+h5 a,
+h5 a:visited,
+h5 a:active {
+  display: inline;
+  color: inherit;
+  margin-left: 0.5em;
+  text-decoration: none; }
+
+h5 a:hover {
+  text-decoration: underline; }
 
 small,
 .text_small {
@@ -275,17 +330,19 @@ table,
 pre {
   overflow-x: auto; }
 
+table {
+  border: 1px solid; }
+
 thead {
-  background: var(--thead-bg-color); }
+  background: var(--yellow); }
+
+tbody {
+  background: var(--yellow-40); }
 
 th,
 td {
   border: 1px solid;
   padding: 1vw; }
-
-table {
-  background: var(--table-bg-color);
-  border: 1px solid; }
 
 /* Links */
 a {

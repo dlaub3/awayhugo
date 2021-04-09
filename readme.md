@@ -19,6 +19,6 @@
 - [ ] use css media preload instead of JS
 - [ ] fix header spacing, especially for the outline section 
 - [ ] improve fonts 
-- [ ] improve hamburger button
+- [x] improve hamburger button
 - [ ] audit page descriptions
 - [ ] setup browser-sync for mobile testing

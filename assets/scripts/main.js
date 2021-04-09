@@ -54,3 +54,13 @@ const toggleMainNav = () => {
         }
     }
 };
+const addPageLevelAnchors = () => {
+    const headingsSelector = "article h1, article h2, article h3, article h4, article h5";
+    const headings = document.querySelectorAll(headingsSelector);
+    for (const element of headings) {
+        element.innerHTML += `<a href="#${element.id}">#</a>`;
+    }
+};
+window.addEventListener('load', () => {
+    addPageLevelAnchors();
+});

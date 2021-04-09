@@ -47,15 +47,29 @@ h5 {
 
 @for $i from 1 through 5 {
     h#{$i} {
-        margin-bottom: 1em;
-        margin-top: 2.5em;
+        margin-top: 2em;
+        margin-bottom: 0.25em;
     }
     h#{$i}:target {
         // add horizontal space to account for the fixed header
         // https://css-tricks.com/hash-tag-links-padding/
         margin-top: -2em;
-        padding-top: 4.6em;
+        padding-top: 4em;
         display: inline-block;
+    }
+
+    h#{$i} {
+        a,
+        a:visited,
+        a:active {
+            display: inline;
+            color: inherit;
+            margin-left: 0.5em;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     }
 }
 
