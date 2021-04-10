@@ -6,7 +6,9 @@ blockquote {
     background: rgb(240, 240, 240);
     border-left: var(--body-color) 0.5em solid;
     padding: 0.5em 1.5em;
-    margin: 1em 0 2em;
+    margin: 1em;
+    margin-inline-start: 1em;
+    margin-inline-end: 1em;
 }
 
 cite {

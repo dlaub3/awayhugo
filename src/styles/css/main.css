@@ -321,7 +321,9 @@ blockquote {
   background: #f0f0f0;
   border-left: var(--body-color) 0.5em solid;
   padding: 0.5em 1.5em;
-  margin: 1em 0 2em; }
+  margin: 1em;
+  margin-inline-start: 1em;
+  margin-inline-end: 1em; }
 
 cite {
   font-size: 0.9em; }
@@ -357,24 +359,23 @@ a:hover {
 aside#outline {
   margin-top: 4em;
   margin-bottom: 4em; }
-  aside#outline nav#TableOfContents {
-    border-left: 0.5em solid var(--cyan); }
-    aside#outline nav#TableOfContents ul {
-      list-style-type: none;
-      font-weight: bold;
-      padding: 0;
-      padding-left: 1em;
-      margin: 0; }
-      aside#outline nav#TableOfContents ul a {
-        color: var(--body-color); }
-      aside#outline nav#TableOfContents ul a:visited {
-        color: var(--body-color); }
-      aside#outline nav#TableOfContents ul a:hover {
-        color: var(--body-color); }
-      aside#outline nav#TableOfContents ul a:active {
-        color: var(--body-color); }
-      aside#outline nav#TableOfContents ul a {
-        text-decoration: none; }
+  aside#outline nav#TableOfContents ul {
+    list-style-type: none;
+    font-weight: bold;
+    padding: 0;
+    padding-left: calc(40px - 1em);
+    border-left: 0.5em solid var(--cyan);
+    margin-left: 0.5em; }
+    aside#outline nav#TableOfContents ul a {
+      color: var(--body-color); }
+    aside#outline nav#TableOfContents ul a:visited {
+      color: var(--body-color); }
+    aside#outline nav#TableOfContents ul a:hover {
+      color: var(--body-color); }
+    aside#outline nav#TableOfContents ul a:active {
+      color: var(--body-color); }
+    aside#outline nav#TableOfContents ul a {
+      text-decoration: none; }
   aside#outline h2 {
     margin-top: 1em; }
   aside#outline ~ h2 {
@@ -707,6 +708,10 @@ li > code,
 p > code {
   padding-left: 10px;
   padding-right: 10px; }
+
+div.highlight {
+  margin-left: 1em;
+  margin-right: 1em; }
 
 .hamburger-outer {
   align-items: center;

@@ -4,13 +4,13 @@ aside#outline {
     margin-top: 4em;
     margin-bottom: 4em;
     nav#TableOfContents {
-        border-left: 0.5em solid var(--cyan);
         ul {
             list-style-type: none;
             font-weight: bold;
             padding: 0;
-            padding-left: 1em;
-            margin: 0;
+            padding-left: calc(40px - 1em);
+            border-left: 0.5em solid var(--cyan);
+            margin-left: 0.5em;
 
             @include link_color(
                 var(--body-color),
