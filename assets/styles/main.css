@@ -443,7 +443,7 @@ body {
   body.modal-open {
     overflow: hidden !important; }
 
-#top-bar {
+#menu-bar {
   align-items: center;
   background: #282a36;
   background: var(--bg);
@@ -455,10 +455,10 @@ body {
   position: sticky;
   top: 0;
   z-index: 2; }
-  #top-bar *:focus {
+  #menu-bar *:focus {
     outline: dashed 3px #f8f8f2;
     outline: dashed 3px var(--foreground); }
-  #top-bar .hamburger {
+  #menu-bar .hamburger {
     background: #50fa7b;
     background: var(--green);
     border: none;
@@ -469,7 +469,7 @@ body {
     width: 3.5em;
     min-width: 55px;
     border-radius: 4px; }
-    #top-bar .hamburger .hamburger-inner {
+    #menu-bar .hamburger .hamburger-inner {
       border-radius: 4px; }
 
 header {
@@ -607,6 +607,22 @@ main {
   main h1 {
     text-transform: uppercase; }
 
+main > section {
+  grid-area: section;
+  padding: 5vw;
+  max-width: 100vw; }
+  main > section#single #sidebar-right nav {
+    background: rgba(241, 250, 140, 0.4);
+    background: var(--yellow-40); }
+  main > section#single #sidebar-right strong {
+    display: inline-block;
+    text-transform: uppercase;
+    color: #ff79c6;
+    color: var(--pink);
+    background: #282a36;
+    background: var(--bg);
+    width: 100%; }
+
 footer {
   align-items: center;
   background-color: #21222c;
@@ -643,47 +659,34 @@ footer {
     outline: dashed 3px var(--foreground); }
 
 #main-nav ul li,
-#top-bar {
-  padding: 0 4vw; }
+#menu-bar {
+  padding: 0 5vw; }
 
 @media screen and (min-width: 500px) {
   #main-nav ul li,
-  #top-bar {
-    padding: 0 10vw; } }
-
-@media screen and (min-width: 1000px) {
-  #main-nav ul li,
-  #top-bar {
-    padding: 0 20vw; } }
-
-@media screen and (min-width: 1500px) {
-  #main-nav ul li,
-  #top-bar {
-    padding: 0 25vw; } }
-
-@media screen and (min-width: 2500px) {
-  #main-nav ul li,
-  #top-bar {
-    padding: 0 30vw; } }
-
-main > section {
-  grid-area: section;
-  min-width: 100%;
-  padding: 2vw 4vw; }
-
-@media screen and (min-width: 500px) {
+  #menu-bar {
+    padding: 0 10vw; }
   main > section {
     padding: 1vw 10vw 1vw; } }
 
 @media screen and (min-width: 1000px) {
+  #main-nav ul li,
+  #menu-bar {
+    padding: 0 15vw; }
   main > section {
-    padding: 2vw 20vw 4vw; } }
+    padding: 2vw 15vw 4vw; } }
 
 @media screen and (min-width: 1500px) {
+  #main-nav ul li,
+  #menu-bar {
+    padding: 0 25vw; }
   main > section {
     padding: 3vw 25vw 6vw; } }
 
 @media screen and (min-width: 2500px) {
+  #main-nav ul li,
+  #menu-bar {
+    padding: 0 30vw; }
   main > section {
     padding: 4vw 30vw 8vw; } }
 
@@ -748,12 +751,13 @@ main > section {
     margin-left: 0; }
   .tag-list li,
   .category-list li {
-    margin: 0.5em 0; }
+    margin: 0;
+    margin-bottom: 0.5em; }
 
 a.tag,
 a.category {
   border-radius: 0px;
-  margin: 5px;
+  margin: 0 5px;
   padding: 5px 15px;
   text-transform: uppercase; }
 

@@ -1,18 +1,32 @@
 {{ define "main" }}
-<section>
-  <aside id="tags">
+<section id="single">
+  <aside id="topbar">
     {{- partial "tags-links-items.html" . -}}
   </aside>
   {{ if and (gt (len .TableOfContents) 40) (eq .Page.Params.toc true) }}
-  <aside id="outline">
+  <aside id="sidebar-left">
     <h2>Outline</h2>
     {{ .Page.TableOfContents }}
   </aside>
   {{ end }}
-  <article>
+  <article id="content">
     {{ .Content }}
   </article>
-  <aside>
+  {{if .Params.series }}
+  <aside id="sidebar-right">
+    <nav>
+      <strong>
+        Series: {{ replace .Params.series "-" " " }}
+      </strong>
+      <ul>
+        {{ range (index .Site.Taxonomies.series .Params.series ) }}
+        <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  </aside>
+  {{ end }}
+  <aside id="bottombar">
     {{- partial "tags-links-items.html" . -}}
   </aside>
 </section>

@@ -18,7 +18,7 @@ body {
     }
 }
 
-#top-bar {
+#menu-bar {
     align-items: center;
     background: var(--bg);
     display: flex;
@@ -189,6 +189,40 @@ main {
     }
 }
 
+main > section {
+    grid-area: section;
+    padding: 5vw;
+    max-width: 100vw;
+
+    &#single {
+        #sidebar-left {
+        }
+
+        #topbar {
+        }
+
+        #content {
+        }
+
+        #bottombar {
+        }
+
+        #sidebar-right {
+            nav {
+                background: var(--yellow-40);
+            }
+
+            strong {
+                display: inline-block;
+                text-transform: uppercase;
+                color: var(--pink);
+                background: var(--bg);
+                width: 100%;
+            }
+        }
+    }
+}
+
 footer {
     @include link_color(
         var(--purple),
@@ -229,63 +263,45 @@ footer {
 }
 
 #main-nav ul li,
-#top-bar {
-    padding: 0 4vw;
+#menu-bar {
+    padding: 0 5vw;
 }
 
 @media screen and (min-width: 500px) {
     #main-nav ul li,
-    #top-bar {
+    #menu-bar {
         padding: 0 10vw;
     }
-}
-
-@media screen and (min-width: 1000px) {
-    #main-nav ul li,
-    #top-bar {
-        padding: 0 20vw;
-    }
-}
-
-@media screen and (min-width: 1500px) {
-    #main-nav ul li,
-    #top-bar {
-        padding: 0 25vw;
-    }
-}
-
-@media screen and (min-width: 2500px) {
-    #main-nav ul li,
-    #top-bar {
-        padding: 0 30vw;
-    }
-}
-
-main > section {
-    grid-area: section;
-    min-width: 100%;
-    padding: 2vw 4vw;
-}
-
-@media screen and (min-width: 500px) {
     main > section {
         padding: 1vw 10vw 1vw;
     }
 }
 
 @media screen and (min-width: 1000px) {
+    #main-nav ul li,
+    #menu-bar {
+        padding: 0 15vw;
+    }
     main > section {
-        padding: 2vw 20vw 4vw;
+        padding: 2vw 15vw 4vw;
     }
 }
 
 @media screen and (min-width: 1500px) {
+    #main-nav ul li,
+    #menu-bar {
+        padding: 0 25vw;
+    }
     main > section {
         padding: 3vw 25vw 6vw;
     }
 }
 
 @media screen and (min-width: 2500px) {
+    #main-nav ul li,
+    #menu-bar {
+        padding: 0 30vw;
+    }
     main > section {
         padding: 4vw 30vw 8vw;
     }
