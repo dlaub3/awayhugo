@@ -294,6 +294,14 @@ footer {
     }
     main > section {
         padding: 3vw 25vw 6vw;
+
+        #sidebar-right {
+            position: absolute;
+            top: 0;
+            left: calc(100vw - 25vw);
+            padding-top: 3vw;
+            padding-bottom: 6vw;
+        }
     }
 }
 
@@ -304,5 +312,11 @@ footer {
     }
     main > section {
         padding: 4vw 30vw 8vw;
+
+        #sidebar-right {
+            left: calc(100vw - 30vw);
+            padding-top: 4vw;
+            padding-bottom: 8vw;
+        }
     }
 }
