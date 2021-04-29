@@ -1,6 +1,7 @@
 {{ define "main" }}
 <section id="single">
   <aside id="topbar">
+    <span>{{ dateFormat "January, 2006" .Date }}</span>
     {{- partial "tags-links-items.html" . -}}
   </aside>
   {{ if and (gt (len .TableOfContents) 40) (eq .Page.Params.toc true) }}

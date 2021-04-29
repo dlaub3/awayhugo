@@ -70,10 +70,9 @@
   --header-color: #e1e1e1;
   --header-bg-color: #e1e1e1;
   --body-color: #2c2c2c;
-  --body-bg-color: #fff;
+  --body-bg-color: whitemoke;
   --body-font-size: 16px;
-  --main-color: #fff;
-  --main-bg-color: whitesmoke;
+  --main-color: whitesmoke;
   --footer-color: #e1e1e1;
   --footer-bg-color: #e1e1e1;
   --nav-bg-color: #32425c;
@@ -82,7 +81,7 @@
   --pre-bg-color: #f5f5f5;
   --table-bg-color: #e1e1e1;
   --thead-bg-color: #d2d2d2;
-  --link-color: #1167ef;
+  --link-color: #0059e6;
   --link-visited-color: #07398c;
   --link-hover-color: #011225;
   --link-active-color: #1167ef; }
@@ -106,7 +105,8 @@ body {
   font-size: calc(var(--body-font-size) + 1 * (100vw / 500));
   margin: 0;
   overflow-x: hidden;
-  padding: 0; }
+  padding: 0;
+  background: whitesmoke; }
 
 .overflow-hidden {
   overflow: hidden !important; }
@@ -177,7 +177,7 @@ body {
 
 /* Links */
 a {
-  color: #1167ef;
+  color: #0059e6;
   color: var(--link-color); }
 
 a:visited {
@@ -189,7 +189,6 @@ a:hover {
   color: var(--link-hover-color); }
 
 body {
-  background: white;
   font-family: 'Fira Code', monospace;
   font-weight: 400;
   line-height: 1.75; }
@@ -331,7 +330,7 @@ article {
   margin-bottom: 3em; }
 
 blockquote {
-  background: #f0f0f0;
+  border: 1px solid;
   border-left: #2c2c2c 0.5em solid;
   border-left: var(--body-color) 0.5em solid;
   padding: 0.5em 1.5em;
@@ -348,6 +347,9 @@ blockquote {
 
 [dir="rtl"] blockquote{
   margin-left: 1em; }
+  blockquote > * {
+    background: rgba(139, 233, 253, 0.4);
+    background: var(--cyan-40); }
 
 cite {
   font-size: 0.9em; }
@@ -374,7 +376,7 @@ td {
 
 /* Links */
 a {
-  color: #1167ef;
+  color: #0059e6;
   color: var(--link-color); }
 
 a:visited {
@@ -417,7 +419,7 @@ aside#outline {
 
 /* Links */
 a {
-  color: #1167ef;
+  color: #0059e6;
   color: var(--link-color); }
 
 a:visited {
