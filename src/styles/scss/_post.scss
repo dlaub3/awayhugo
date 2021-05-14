@@ -7,6 +7,10 @@
             list-style-type: none;
             width: 100%;
 
+            h3 {
+                margin-top: 0;
+            }
+
             .post-list-item {
                 background: var(--bgdarker);
                 border-radius: 0px;
@@ -14,18 +18,15 @@
                 display: block;
                 flex-basis: 100%;
                 list-style-type: none;
-                margin: 2.5em 0;
+                margin: 0.5em 0;
                 padding: 0;
                 text-decoration: none;
             }
 
-            .post-list-item,
-            .post-list-item:visited,
             .post-list-item:active,
             .post-list-item:hover,
             .post-list-item:focus {
-                background: var(--bgdarker);
-                color: var(--purple);
+                outline: 3px dashed black;
             }
 
             .post-list-item h5 {
@@ -33,19 +34,9 @@
                 margin-top: 0.5em;
             }
 
-            a.post-list-item:hover h5 {
-                text-decoration: underline;
-                text-decoration-color: var(--green);
-            }
-
             .post-list-item p {
                 background: var(--bg);
                 color: var(--green);
-            }
-
-            a.post-list-item:hover p {
-                text-decoration: underline;
-                text-decoration-color: var(--purple);
             }
         }
     }

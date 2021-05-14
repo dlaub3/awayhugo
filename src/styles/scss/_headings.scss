@@ -50,7 +50,7 @@ small,
 @for $i from 1 through 5 {
     h#{$i} {
         margin-top: 2em;
-        margin-bottom: 0.25em;
+        margin-bottom: 0.5em;
     }
     h#{$i}:target {
         // add horizontal space to account for the fixed header

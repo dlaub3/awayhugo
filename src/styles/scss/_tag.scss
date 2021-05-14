@@ -35,6 +35,12 @@ a.category:active {
     color: var(--bgdarker);
 }
 
+a.category:active,
+a.category:hover,
+a.category:focus {
+    outline: 3px dashed black;
+}
+
 a.tag {
     background: var(--purple);
     color: var(--bgdarker);
@@ -45,4 +51,10 @@ a.tag:visited,
 a.tag:hover,
 a.tag:active {
     color: var(--bgdarker);
+}
+
+a.tag:active,
+a.tag:hover,
+a.tag:focus {
+    outline: 3px dashed black;
 }

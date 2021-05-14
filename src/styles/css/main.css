@@ -131,9 +131,9 @@ body {
   visibility: hidden; }
 
 #skip {
+  top: 0;
   left: 0;
   position: fixed;
-  top: 0;
   z-index: 5; }
 
 #skip a,
@@ -157,9 +157,9 @@ body {
   animation-fill-mode: both;
   animation-name: skip;
   background: var(--pink);
-  margin: 20px 50px;
+  margin: 0 20px 50px;
   outline-color: white;
-  padding: 15px 20px;
+  padding: 8px 20px;
   transition: all 300ms; }
 
 /* Links */
@@ -212,7 +212,7 @@ small,
 
 h1 {
   margin-top: 2em;
-  margin-bottom: 0.25em; }
+  margin-bottom: 0.5em; }
 
 h1:target {
   margin-top: -2em;
@@ -232,7 +232,7 @@ h1 a:hover {
 
 h2 {
   margin-top: 2em;
-  margin-bottom: 0.25em; }
+  margin-bottom: 0.5em; }
 
 h2:target {
   margin-top: -2em;
@@ -252,7 +252,7 @@ h2 a:hover {
 
 h3 {
   margin-top: 2em;
-  margin-bottom: 0.25em; }
+  margin-bottom: 0.5em; }
 
 h3:target {
   margin-top: -2em;
@@ -272,7 +272,7 @@ h3 a:hover {
 
 h4 {
   margin-top: 2em;
-  margin-bottom: 0.25em; }
+  margin-bottom: 0.5em; }
 
 h4:target {
   margin-top: -2em;
@@ -292,7 +292,7 @@ h4 a:hover {
 
 h5 {
   margin-top: 2em;
-  margin-bottom: 0.25em; }
+  margin-bottom: 0.5em; }
 
 h5:target {
   margin-top: -2em;
@@ -317,9 +317,7 @@ blockquote {
   border: 1px solid;
   border-left: var(--body-color) 0.5em solid;
   padding: 0.5em 1.5em;
-  margin: 1em;
-  margin-inline-start: 1em;
-  margin-inline-end: 1em; }
+  margin: 0em; }
   blockquote > * {
     background: var(--cyan-40); }
 
@@ -619,6 +617,8 @@ footer {
   .post-list ul li {
     list-style-type: none;
     width: 100%; }
+    .post-list ul li h3 {
+      margin-top: 0; }
     .post-list ul li .post-list-item {
       background: var(--bgdarker);
       border-radius: 0px;
@@ -626,28 +626,19 @@ footer {
       display: block;
       flex-basis: 100%;
       list-style-type: none;
-      margin: 2.5em 0;
+      margin: 0.5em 0;
       padding: 0;
       text-decoration: none; }
-    .post-list ul li .post-list-item,
-    .post-list ul li .post-list-item:visited,
     .post-list ul li .post-list-item:active,
     .post-list ul li .post-list-item:hover,
     .post-list ul li .post-list-item:focus {
-      background: var(--bgdarker);
-      color: var(--purple); }
+      outline: 3px dashed black; }
     .post-list ul li .post-list-item h5 {
       background: var(--bg);
       margin-top: 0.5em; }
-    .post-list ul li a.post-list-item:hover h5 {
-      text-decoration: underline;
-      text-decoration-color: var(--green); }
     .post-list ul li .post-list-item p {
       background: var(--bg);
       color: var(--green); }
-    .post-list ul li a.post-list-item:hover p {
-      text-decoration: underline;
-      text-decoration-color: var(--purple); }
 
 .tag-list,
 .category-list {
@@ -681,6 +672,11 @@ a.category:hover,
 a.category:active {
   color: var(--bgdarker); }
 
+a.category:active,
+a.category:hover,
+a.category:focus {
+  outline: 3px dashed black; }
+
 a.tag {
   background: var(--purple);
   color: var(--bgdarker); }
@@ -690,6 +686,11 @@ a.tag:visited,
 a.tag:hover,
 a.tag:active {
   color: var(--bgdarker); }
+
+a.tag:active,
+a.tag:hover,
+a.tag:focus {
+  outline: 3px dashed black; }
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
@@ -716,10 +717,6 @@ li > code,
 p > code {
   padding-left: 10px;
   padding-right: 10px; }
-
-div.highlight {
-  margin-left: 1em;
-  margin-right: 1em; }
 
 .hamburger-outer {
   align-items: center;
