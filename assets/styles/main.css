@@ -658,16 +658,19 @@ footer {
   #main-nav ul li,
   #menu-bar {
     padding: 0 15vw; }
-  main > section {
+  main > section,
+  body > header {
     padding: 2vw 15vw 4vw; } }
 
 @media screen and (min-width: 1500px) {
   #main-nav ul li,
   #menu-bar {
     padding: 0 25vw; }
-  main > section {
+  main > section,
+  body > header {
     padding: 3vw 25vw 6vw; }
-    main > section #sidebar-right {
+    main > section #sidebar-right,
+    body > header #sidebar-right {
       position: absolute;
       top: 0;
       left: calc(100vw - 25vw);
@@ -678,9 +681,11 @@ footer {
   #main-nav ul li,
   #menu-bar {
     padding: 0 30vw; }
-  main > section {
+  main > section,
+  body > header {
     padding: 4vw 30vw 8vw; }
-    main > section #sidebar-right {
+    main > section #sidebar-right,
+    body > header #sidebar-right {
       left: calc(100vw - 30vw);
       padding-top: 4vw;
       padding-bottom: 8vw; } }
@@ -800,7 +805,7 @@ p > code {
   white-space: pre-line;
   word-break: normal;
   word-spacing: normal;
-  word-wrap: normal; }
+  word-wrap: break-word; }
 
 li > code,
 p > code {

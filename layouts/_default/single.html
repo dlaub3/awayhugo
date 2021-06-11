@@ -1,8 +1,8 @@
 {{ define "main" }}
 <section id="single">
   <aside id="topbar">
-    {{ if ne .Page.Params.date nil }}
-      <span>{{ dateFormat "January, 2006" .Date }}</span>
+    {{ if (isset .Page.Params "date")}}
+    <span>{{ dateFormat "January, 2006" .Date }}</span>
     {{ end }}
     {{- partial "tags-links-items.html" . -}}
   </aside>

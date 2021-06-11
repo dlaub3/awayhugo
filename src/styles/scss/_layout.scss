@@ -281,7 +281,8 @@ footer {
     #menu-bar {
         padding: 0 15vw;
     }
-    main > section {
+    main > section,
+    body > header {
         padding: 2vw 15vw 4vw;
     }
 }
@@ -291,7 +292,8 @@ footer {
     #menu-bar {
         padding: 0 25vw;
     }
-    main > section {
+    main > section,
+    body > header {
         padding: 3vw 25vw 6vw;
 
         #sidebar-right {
@@ -309,7 +311,8 @@ footer {
     #menu-bar {
         padding: 0 30vw;
     }
-    main > section {
+    main > section,
+    body > header {
         padding: 4vw 30vw 8vw;
 
         #sidebar-right {
