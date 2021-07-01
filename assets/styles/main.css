@@ -690,6 +690,20 @@ footer {
       padding-top: 4vw;
       padding-bottom: 8vw; } }
 
+figure {
+  margin: 2rem 0;
+  padding: 0.25rem;
+  background-color: #191a21;
+  background-color: var(--bgdarker); }
+  figure figcaption {
+    color: #ff79c6;
+    color: var(--pink);
+    padding: 0.5em 0.5em;
+    font-size: 1rem;
+    background: #424450;
+    background: var(--bglighter);
+    font-weight: bolder; }
+
 .post-list ul {
   margin: 0;
   padding: 0; }

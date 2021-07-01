@@ -322,3 +322,16 @@ footer {
         }
     }
 }
+
+figure {
+    margin: 2rem 0;
+    padding: 0.25rem;
+    background-color: var(--bgdarker);
+    figcaption {
+        color: var(--pink);
+        padding: 0.5em 0.5em;
+        font-size: 1rem;
+        background: var(--bglighter);
+        font-weight: bolder;
+    }
+}
