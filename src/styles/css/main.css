@@ -539,6 +539,8 @@ main > section {
     color: var(--pink);
     background: var(--bg);
     width: 100%; }
+  main > section#single #sidebar-right ul {
+    padding-right: 2em; }
 
 footer {
   align-items: center;

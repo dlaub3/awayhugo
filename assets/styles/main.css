@@ -607,6 +607,8 @@ main > section {
     background: #282a36;
     background: var(--bg);
     width: 100%; }
+  main > section#single #sidebar-right ul {
+    padding-right: 2em; }
 
 footer {
   align-items: center;
