@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section>
+  <nav class="post-list">
+    <ul>
+      {{ range .Pages }}
+      <li>
+        <a class="post-list-item" href={{ .Permalink }}>
+          <div>
+            <h1>{{ .Title }}</h1>
+            <p> {{ .Description }}</p>
+          </div>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
+</section>
+{{ end }}

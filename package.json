@@ -27,7 +27,8 @@
     },
     "scripts": {
         "tsc": "node_modules/.bin/tsc",
-        "dev": "node_modules/.bin/gulp watch & tsc --watch & cd ../.. && hugo server --watch --ignoreCache --config config.dev.toml",
+        "hugo-watch": "cd ../.. && hugo server --watch --ignoreCache --config config.dev.toml",
+        "gulp-watch": "node_modules/.bin/gulp watch & tsc --watch",
         "prod": "node_modules/.bin/gulp watch & cd ../.. && hugo server --watch",
         "build": "node_modules/.bin/gulp build & cd ../.. && hugo server --watch",
         "vendor": "node_modules/.bin/gulp vendor",

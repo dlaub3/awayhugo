@@ -2,7 +2,7 @@
 <section id="single">
   <aside id="topbar">
     {{ if (isset .Page.Params "date")}}
-    <span>{{ dateFormat "January, 2006" .Date }}</span>
+    <span>{{ dateFormat "January 2, 2006" .Date }}</span>
     {{ end }}
     {{- partial "tags-links-items.html" . -}}
   </aside>
@@ -17,16 +17,7 @@
   </article>
   {{if .Params.series }}
   <aside id="sidebar-right">
-    <nav>
-      <strong>
-        Series: {{ replace .Params.series "-" " " }}
-      </strong>
-      <ul>
-        {{ range (index .Site.Taxonomies.series .Params.series ) }}
-        <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
-        {{ end }}
-      </ul>
-    </nav>
+    {{- partial "related-series.html" . -}}
   </aside>
   {{ end }}
   <aside id="bottombar">

@@ -21,22 +21,28 @@
                 margin: 0.5em 0;
                 padding: 0;
                 text-decoration: none;
-            }
 
-            .post-list-item:active,
-            .post-list-item:hover,
-            .post-list-item:focus {
-                outline: 3px dashed black;
-            }
+                &:active,
+                &:hover,
+                &:focus {
+                    outline: 3px dashed black;
+                }
 
-            .post-list-item h5 {
-                background: var(--bg);
-                margin-top: 0.5em;
-            }
+                h5 {
+                    background: var(--bg);
+                    margin-top: 0.5em;
+                }
 
-            .post-list-item p {
-                background: var(--bg);
-                color: var(--green);
+                p {
+                    background: var(--bg);
+                    color: var(--green);
+                }
+
+                .date {
+                    color: var(--yellow);
+                    display: block;
+                    text-align: right;
+                }
             }
         }
     }

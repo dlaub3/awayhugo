@@ -1,0 +1,13 @@
+<nav>
+  <strong>
+    Series: {{ replace .Params.series "-" " " }}
+  </strong>
+  <ul>
+    {{ $related := .Site.RegularPages.RelatedIndices . "series" }}
+    {{ with $related }}
+    {{ range . }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+    {{ end }}
+  </ul>
+</nav>

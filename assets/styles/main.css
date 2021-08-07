@@ -726,19 +726,22 @@ figure {
       margin: 0.5em 0;
       padding: 0;
       text-decoration: none; }
-    .post-list ul li .post-list-item:active,
-    .post-list ul li .post-list-item:hover,
-    .post-list ul li .post-list-item:focus {
-      outline: 3px dashed black; }
-    .post-list ul li .post-list-item h5 {
-      background: #282a36;
-      background: var(--bg);
-      margin-top: 0.5em; }
-    .post-list ul li .post-list-item p {
-      background: #282a36;
-      background: var(--bg);
-      color: #50fa7b;
-      color: var(--green); }
+      .post-list ul li .post-list-item:active, .post-list ul li .post-list-item:hover, .post-list ul li .post-list-item:focus {
+        outline: 3px dashed black; }
+      .post-list ul li .post-list-item h5 {
+        background: #282a36;
+        background: var(--bg);
+        margin-top: 0.5em; }
+      .post-list ul li .post-list-item p {
+        background: #282a36;
+        background: var(--bg);
+        color: #50fa7b;
+        color: var(--green); }
+      .post-list ul li .post-list-item .date {
+        color: #f1fa8c;
+        color: var(--yellow);
+        display: block;
+        text-align: right; }
 
 .tag-list,
 .category-list {
