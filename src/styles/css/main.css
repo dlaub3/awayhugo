@@ -657,8 +657,8 @@ figure {
         color: var(--green); }
       .post-list ul li .post-list-item .date {
         color: var(--yellow);
-        display: block;
-        text-align: right; }
+        float: right;
+        margin-left: 2em; }
 
 .tag-list,
 .category-list {

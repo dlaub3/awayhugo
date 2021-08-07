@@ -40,8 +40,8 @@
 
                 .date {
                     color: var(--yellow);
-                    display: block;
-                    text-align: right;
+                    float: right;
+                    margin-left: 2em;
                 }
             }
         }

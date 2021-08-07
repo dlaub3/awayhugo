@@ -740,8 +740,8 @@ figure {
       .post-list ul li .post-list-item .date {
         color: #f1fa8c;
         color: var(--yellow);
-        display: block;
-        text-align: right; }
+        float: right;
+        margin-left: 2em; }
 
 .tag-list,
 .category-list {
