@@ -7,9 +7,15 @@
     {{ end }}
     {{ end }}
   </ul>
+  {{ else if in (slice "tags" "categories") .Page.Type }}
+  <ul>
+    {{ range sort .Pages "Title" }}
+      {{- partial "post-list-item" . -}}
+    {{ end }}
+  </ul>
   {{ else }}
   <ul>
-    {{ range .Pages }}
+    {{ range .RegularPages }}
       {{- partial "post-list-item" . -}}
     {{ end }}
   </ul>
