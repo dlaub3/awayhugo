@@ -2,7 +2,7 @@
 <section>
   <nav class="post-list">
     <ul>
-      {{ range .Pages }}
+      {{ range sort .Pages "Title" }}
       <li>
         <a class="post-list-item" href={{ .Permalink }}>
           <div>
