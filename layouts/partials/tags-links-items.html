@@ -1,5 +1,5 @@
 <ul class="tag-list">
-  {{ range (.GetTerms "tags") }}
+  {{ range (sort (.GetTerms "tags") ".LinkTitle") }}
   <li><a class="tag" href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
   {{ end }}
 </ul>

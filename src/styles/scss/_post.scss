@@ -1,25 +1,30 @@
 .post-list {
-    ul {
+    > ul {
         margin: 0;
         padding: 0;
 
-        li {
+        > li {
             list-style-type: none;
             width: 100%;
+            margin-bottom: 1.5em;
 
-            h3 {
-                margin-top: 0;
+            h3,
+            p {
+                margin: 0;
             }
 
             .post-list-item {
+                &.empty {
+                    border-left: 0.3em solid var(--green);
+                    padding-left: 1em;
+                }
                 background: var(--bgdarker);
                 border-radius: 0px;
                 color: var(--purple);
                 display: block;
                 flex-basis: 100%;
-                list-style-type: none;
-                margin: 0.5em 0;
                 padding: 0;
+                list-style-type: none;
                 text-decoration: none;
 
                 &:active,
@@ -40,9 +45,15 @@
 
                 .date {
                     color: var(--yellow);
+                    background: var(--bglighter);
                     float: right;
                     margin-left: 2em;
                 }
+            }
+            .tag-list,
+            .category-list {
+                justify-content: flex-end;
+                font-size: 16px;
             }
         }
     }

@@ -6,8 +6,13 @@
     margin: 0;
     padding: 0;
 
+    li:first-of-type,
     li:first-of-type a {
         margin-left: 0;
+    }
+    li:last-of-type,
+    li:last-of-type a {
+        margin-right: 0;
     }
     li {
         margin: 0;
@@ -18,13 +23,14 @@
 a.tag,
 a.category {
     border-radius: 0px;
-    margin: 0 5px;
-    padding: 5px 15px;
+    margin: 0 0.1em;
+    padding: 0.1em 0.5em;
     text-transform: uppercase;
+    display: inline-block;
 }
 
 a.category {
-    background: var(--red);
+    background: var(--purple);
     color: var(--bgdarker);
 }
 
@@ -42,7 +48,7 @@ a.category:focus {
 }
 
 a.tag {
-    background: var(--purple);
+    background: var(--pink);
     color: var(--bgdarker);
 }
 

@@ -1,3 +1,8 @@
 <header>
   <h1>{{ .Title }}</h1>
+  {{ if (isset .Page.Params "date")}}
+    <div>
+      <span>{{ dateFormat "January, 2006" .Date }}</span>
+    </div>
+  {{ end }}
 </header>

@@ -1,10 +1,31 @@
-<ul>
+<nav id="main-nav" class="hidden" aria-hidden="true">
+  <ul class="nav-top">
+    <li>
+      <a id="categories" href="/categories">
+        Categories
+      </a>
+    </li>
+    <li>
+      <a id="tags" href="/tags">
+        Tags
+      </a>
+    </li>
+    <li>
+      <a id="jargon" href="/jargon">
+        Jargon
+      </a>
+    </li>
+  </ul>
+  <ul class="nav-left">
   {{ $currentPage := . }}
   {{ range .Site.Menus.main }}
-  <li class="{{if or ($currentPage.IsMenuCurrent " main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}">
-    <strong>
-      <a class="" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Name }}</a>
-    </strong>
-  </li>
+    {{ if ne .Name "Jargon" }}
+    <li>
+      <a id="{{ .Title }}" href="{{ .URL }}">{{ .Name }}</a>
+    </li>
   {{ end }}
-</ul>
+  {{ end }}
+  </ul>
+</nav>
+
+

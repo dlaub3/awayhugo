@@ -3,31 +3,14 @@
   <ul>
     {{ range where .Site.RegularPages "Type" "not in" (slice "jargon" ) }}
     {{ if ne .Name "About" }}
-    <li>
-      <a class="post-list-item" href={{ .Permalink }}>
-        <div>
-          {{ if (isset .Page.Params "date")}}
-          <span class="date">{{ dateFormat "January 2, 2006" .Date }}</span>
-          {{ end }}
-          <h3>{{ .Title }}</h3>
-          <p> {{ .Description }}</p>
-        </div>
-      </a>
-    </li>
+      {{- partial "post-list-item" . -}}
     {{ end }}
     {{ end }}
   </ul>
   {{ else }}
   <ul>
     {{ range .Pages }}
-    <li>
-      <a class="post-list-item" href={{ .Permalink }}>
-        <div>
-          <h3>{{ .Title }}</h3>
-          <p> {{ .Description }}</p>
-        </div>
-      </a>
-    </li>
+      {{- partial "post-list-item" . -}}
     {{ end }}
   </ul>
   {{ end }}

@@ -3,6 +3,7 @@
     Series: {{ replace .Params.series "-" " " }}
   </strong>
   <ul>
+    <li><a href="{{ .Permalink }}"><strong>{{ .Title }}</strong></a></li>
     {{ $related := .Site.RegularPages.RelatedIndices . "series" }}
     {{ with $related }}
     {{ range . }}

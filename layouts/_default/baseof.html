@@ -29,20 +29,7 @@
     </a>
   </div>
   {{- partial "header.html" . -}}
-  <nav id="main-nav" class="hidden" aria-hidden="true">
-    <ul>
-      {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
-      {{if eq $taxonomyname "categories"}}
-      {{ range $key, $value := $taxonomy }}
-      <li>
-        <a id="{{$key}}" href="{{$value.Page.Permalink}}">
-          {{ $value.Page.LinkTitle }}
-        </a>
-      </li>
-      {{ end }}
-      {{ end }}
-      {{ end }}
-    </ul>
+      {{- partial "lazy-main-menu" . -}}
   </nav>
   <main id="content">
     {{- block "main" . }}{{- end }}
