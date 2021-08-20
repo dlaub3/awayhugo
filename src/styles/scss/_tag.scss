@@ -23,8 +23,8 @@
 a.tag,
 a.category {
     border-radius: 0px;
-    margin: 0 0.1em;
-    padding: 0.1em 0.5em;
+    margin: 0 0.3em;
+    //padding: 0.1em 0.5em;
     text-transform: uppercase;
     display: inline-block;
 }
@@ -48,7 +48,7 @@ a.category:focus {
 }
 
 a.tag {
-    background: var(--pink);
+    background: var(--purple);
     color: var(--bgdarker);
 }
 

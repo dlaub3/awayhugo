@@ -3,10 +3,12 @@
     Series: {{ replace .Params.series "-" " " }}
   </strong>
   <ul>
+    {{ $pageTitle := .Title }}
+    {{ $related := (union (.Site.RegularPages.RelatedIndices . "series")  (slice  .))}}
+    {{ range sort $related "Date" "desc" }}
+    {{ if eq .Title $pageTitle }}
     <li><a href="{{ .Permalink }}"><strong>{{ .Title }}</strong></a></li>
-    {{ $related := .Site.RegularPages.RelatedIndices . "series" }}
-    {{ with $related }}
-    {{ range . }}
+    {{ else }}
     <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
     {{ end }}
     {{ end }}

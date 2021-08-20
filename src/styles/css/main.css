@@ -703,8 +703,7 @@ figure {
         margin-left: 2em; }
     .post-list > ul > li .tag-list,
     .post-list > ul > li .category-list {
-      justify-content: flex-end;
-      font-size: 16px; }
+      justify-content: flex-end; }
 
 .tag-list,
 .category-list {
@@ -731,8 +730,7 @@ figure {
 a.tag,
 a.category {
   border-radius: 0px;
-  margin: 0 0.1em;
-  padding: 0.1em 0.5em;
+  margin: 0 0.3em;
   text-transform: uppercase;
   display: inline-block; }
 
@@ -752,7 +750,7 @@ a.category:focus {
   outline: 3px dashed black; }
 
 a.tag {
-  background: var(--pink);
+  background: var(--purple);
   color: var(--bgdarker); }
 
 a.tag,
