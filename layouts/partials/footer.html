@@ -15,11 +15,15 @@
   {{ $mainJs := resources.Get "scripts/main.js" }}
   <script src="{{ $mainJs.Permalink }}"></script>
   {{ $vendorJs := resources.Get "vendor/vendor.js" }}
-  <script src="{{ $vendorJs.Permalink  }}"></script>
+  {{ if $vendorJs }}
+    <script src="{{ $vendorJs.Permalink  }}"></script>
+  {{ end }}
   {{ else }}
   {{ $mainJs := resources.Get "scripts/main.js" | minify | fingerprint }}
   <script src="{{ $mainJs.Permalink }}"></script>
   {{ $vendorJs := resources.Get "vendor/vendor.js" | minify | fingerprint }}
-  <script src="{{ $vendorJs.Permalink  }}"></script>
+  {{ if $vendorJs }}
+    <script src="{{ $vendorJs.Permalink  }}"></script>
+  {{ end }}
   {{ end }}
 </footer>

@@ -17,13 +17,12 @@
     </li>
   </ul>
   <ul class="nav-left">
-  {{ $currentPage := . }}
-  {{ range .Site.Menus.main }}
-    {{ if ne .Name "Jargon" }}
-    <li>
-      <a id="{{ .Title }}" href="{{ .URL }}">{{ .Name }}</a>
-    </li>
-  {{ end }}
+  {{ range where .Site.Menus.main "Name" "ne" "Jargon" }}
+     {{ if gt (len .Name) 0 }}
+      <li>
+        <a id="{{ .Title }}" href="{{ .URL }}">{{ .Name }}</a>
+      </li>
+    {{ end }}
   {{ end }}
   </ul>
 </nav>
