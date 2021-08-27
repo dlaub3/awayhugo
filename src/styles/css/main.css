@@ -804,3 +804,7 @@ p > code {
   height: calc(100% / 7);
   position: relative;
   width: 100%; }
+
+.shortcode-live-demo {
+  background: var(--purple-30);
+  margin-top: 2em; }

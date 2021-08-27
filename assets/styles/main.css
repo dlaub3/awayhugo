@@ -902,3 +902,8 @@ p > code {
   height: calc(100% / 7);
   position: relative;
   width: 100%; }
+
+.shortcode-live-demo {
+  background: rgba(189, 147, 249, 0.2);
+  background: var(--purple-30);
+  margin-top: 2em; }
