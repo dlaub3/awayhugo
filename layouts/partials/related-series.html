@@ -1,11 +1,16 @@
 <nav>
   <strong>
-    Series: {{ replace .Params.series "-" " " }}
+    Series: {{ .Params.series }}
   </strong>
   <ul>
     {{ $pageTitle := .Title }}
     {{ $related := (union (.Site.RegularPages.RelatedIndices . "series")  (slice  .))}}
-    {{ range sort $related "Date" "desc" }}
+    {{ if .Params.series_weight }}
+      {{ $related = sort $related ".Params.series_weight" "asc" }}
+    {{ else }}
+      {{ $related = sort $related "Date" "desc" }}
+    {{ end }}
+    {{ range $related }}
     {{ if eq .Title $pageTitle }}
     <li><a href="{{ .Permalink }}"><strong>{{ .Title }}</strong></a></li>
     {{ else }}

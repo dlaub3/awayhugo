@@ -14,6 +14,10 @@
             }
 
             .post-list-item {
+                .series {
+                    background: var(--bglighter);
+                    color: var(--yellow);
+                }
                 &.empty {
                     border-left: 0.3em solid var(--green);
                     padding-left: 1em;

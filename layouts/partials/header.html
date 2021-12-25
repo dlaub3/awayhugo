@@ -1,5 +1,5 @@
 <header>
-  <h1>{{ .Title }}</h1>
+  <h1>{{ if (isset .Page.Params "series")}}<span class="series">{{ .Params.series }}:</span> {{ .Title }}{{else}}{{ .Title }}{{end}}</h1>
   {{ if (isset .Page.Params "date")}}
   {{ if ne .Page.Type "jargon" }}
     <div>

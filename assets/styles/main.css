@@ -426,11 +426,13 @@ a:hover {
   text-decoration: underline; }
 
 body {
+  --menu-bar-height: 55px;
   display: grid;
   grid-template-areas: 'actions' 'head' 'main' 'foot';
   grid-template-columns: 100vw;
-  grid-template-rows: 55px minmax(16em, -webkit-max-content) 1fr 12em;
-  grid-template-rows: 55px minmax(16em, max-content) 1fr 12em;
+  grid-template-rows: var(--menu-bar-height) minmax(16em, -webkit-max-content) 1fr 12em;
+  grid-template-rows: var(--menu-bar-height) minmax(16em, max-content) 1fr 12em;
+  grid-template-rows: var(--menu-bar-height) minmax(16em, max-content) 1fr 12em;
   height: 100%;
   max-width: 100vw;
   min-height: 100vh; }
@@ -459,9 +461,13 @@ body {
     color: #32425c;
     color: var(--nav-bg-color);
     padding: 0.1em 10px;
-    height: calc(100% - 1em);
-    width: 3.5em;
-    min-width: 55px;
+    height: calc((var(--menu-bar-height) / 100) * 70);
+    height: calc((var(--menu-bar-height) / 100) * 70);
+    width: calc((var(--menu-bar-height) / 100) * 90);
+    width: calc((var(--menu-bar-height) / 100) * 90);
+    min-width: var(--size);
+    min-width: var(--size);
+    display: inline-block;
     border-radius: 4px; }
     #menu-bar .hamburger .hamburger-inner {
       border-radius: 4px; }
@@ -548,7 +554,8 @@ a.site-title {
   overflow-y: scroll;
   position: fixed;
   right: 0;
-  top: 55px;
+  top: var(--menu-bar-height);
+  top: var(--menu-bar-height);
   transition: opacity, left, 300ms ease-in-out;
   z-index: 1; }
   #main-nav *:focus {
@@ -627,6 +634,8 @@ main > section {
   grid-area: section;
   padding: 5vw;
   max-width: 100vw; }
+  main > section#single #content:not(.highlight) {
+    line-height: 1.87em; }
   main > section#single #sidebar-right nav {
     background: rgba(241, 250, 140, 0.4);
     background: var(--yellow-40); }
@@ -693,6 +702,8 @@ footer {
     padding: 1vw 10vw 1vw; } }
 
 @media screen and (min-width: 1000px) {
+  body {
+    --menu-bar-height: 75px; }
   #main-nav ul.nav-top,
   #main-nav ul li,
   #menu-bar {
@@ -766,6 +777,11 @@ figure {
       padding: 0;
       list-style-type: none;
       text-decoration: none; }
+      .post-list > ul > li .post-list-item .series {
+        background: #424450;
+        background: var(--bglighter);
+        color: #f1fa8c;
+        color: var(--yellow); }
       .post-list > ul > li .post-list-item.empty {
         border-left: 0.3em solid #50fa7b;
         border-left: 0.3em solid var(--green);

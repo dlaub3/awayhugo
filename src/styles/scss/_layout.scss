@@ -1,6 +1,7 @@
 @import 'link';
 
 body {
+    --menu-bar-height: 55px;
     display: grid;
     grid-template-areas:
         'actions'
@@ -8,7 +9,7 @@ body {
         'main'
         'foot';
     grid-template-columns: 100vw;
-    grid-template-rows: 55px minmax(16em, max-content) 1fr 12em;
+    grid-template-rows: var(--menu-bar-height) minmax(16em, max-content) 1fr 12em;
     height: 100%;
     max-width: 100vw;
     min-height: 100vh;
@@ -39,9 +40,10 @@ body {
         border: none;
         color: var(--nav-bg-color);
         padding: 0.1em 10px;
-        height: calc(100% - 1em);
-        width: 3.5em;
-        min-width: 55px;
+        height: calc((var(--menu-bar-height) / 100) * 70);
+        width: calc((var(--menu-bar-height) / 100) * 90);
+        min-width: var(--size);
+        display: inline-block;
         border-radius: 4px;
         .hamburger-inner {
             border-radius: 4px;
@@ -127,7 +129,7 @@ a.site-title {
     overflow-y: scroll;
     position: fixed;
     right: 0;
-    top: 55px;
+    top: var(--menu-bar-height);
     transition: opacity, left, 300ms ease-in-out;
     z-index: 1;
 
@@ -232,6 +234,9 @@ main > section {
         }
 
         #content {
+            &:not(.highlight) {
+                line-height: 1.87em;
+            }
         }
 
         #bottombar {
@@ -317,6 +322,9 @@ footer {
 }
 
 @media screen and (min-width: 1000px) {
+    body {
+        --menu-bar-height: 75px;
+    }
     #main-nav ul.nav-top,
     #main-nav ul li,
     #menu-bar {

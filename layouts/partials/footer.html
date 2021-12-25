@@ -7,7 +7,7 @@
   <span class="vertical-bar"></span>
   <div class="right">
     <a href="/about/">
-        about
+      about
     </a>
   </div>
 
@@ -16,14 +16,14 @@
   {{ if eq .Site.Params.env "dev" }}
   <script src="{{ $mainJs.Permalink }}"></script>
   {{ if $vendorJs }}
-    <script src="{{ $vendorJs.Permalink  }}"></script>
+  <script src="{{ $vendorJs.Permalink  }}"></script>
   {{ end }}
   {{ else }}
   {{ $mainJs := $mainJs | minify | fingerprint }}
   <script src="{{ $mainJs.Permalink }}"></script>
   {{ if $vendorJs }}
   {{ $vendorJs := $vendorJs | minify | fingerprint }}
-    <script src="{{ $vendorJs.Permalink  }}"></script>
+  <script src="{{ $vendorJs.Permalink  }}"></script>
   {{ end }}
   {{ end }}
 </footer>
