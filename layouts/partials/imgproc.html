@@ -1,0 +1,9 @@
+{{ $original := .Page.Resources.GetMatch (printf "**%s*" .Params.hero_img) }}
+{{ .Scratch.Set "image" ($original.Resize "800x") }}
+{{ $image := .Scratch.Get "image" }}
+<figure style="padding: 0.25rem; margin: 2rem 0;">
+  <img style="max-width: 100%; width: 100%; height: auto;" src="{{ $image.RelPermalink }}">
+	<figcaption>
+    {{ .Params.hero_img_caption }}
+	</figcaption>
+</figure>  
