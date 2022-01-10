@@ -450,13 +450,20 @@ header {
     color: var(--purple) !important; }
   header h1 {
     margin-bottom: 0; }
-  header div {
+  header div:first-of-type {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end; }
-    header div span {
-      color: var(--yellow);
+    header div:first-of-type span {
+      color: var(--pink);
       background: var(--bglighter); }
+  header div:last-of-type {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    background: var(--bglighter); }
+    header div:last-of-type span {
+      color: var(--yellow); }
 
 @keyframes blink {
   0% {
@@ -691,6 +698,7 @@ figure {
       padding: 0;
       list-style-type: none;
       text-decoration: none; }
+      .post-list > ul > li .post-list-item h3,
       .post-list > ul > li .post-list-item .series {
         background: var(--bglighter);
         color: var(--yellow); }
@@ -706,7 +714,7 @@ figure {
         background: var(--bg);
         color: var(--green); }
       .post-list > ul > li .post-list-item .date {
-        color: var(--yellow);
+        color: var(--pink);
         background: var(--bglighter);
         float: right;
         margin-left: 2em; }

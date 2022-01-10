@@ -14,6 +14,7 @@
             }
 
             .post-list-item {
+                h3,
                 .series {
                     background: var(--bglighter);
                     color: var(--yellow);
@@ -48,7 +49,7 @@
                 }
 
                 .date {
-                    color: var(--yellow);
+                    color: var(--pink);
                     background: var(--bglighter);
                     float: right;
                     margin-left: 2em;

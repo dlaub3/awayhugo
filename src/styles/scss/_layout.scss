@@ -73,13 +73,22 @@ header {
         margin-bottom: 0;
     }
 
-    div {
+    div:first-of-type {
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
         span {
-            color: var(--yellow);
+            color: var(--pink);
             background: var(--bglighter);
+        }
+    }
+    div:last-of-type {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        background: var(--bglighter);
+        span {
+            color: var(--yellow);
         }
     }
 }

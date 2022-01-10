@@ -5,6 +5,15 @@
     <div>
       <span>{{ dateFormat "January, 2006" .Date }}</span>
     </div>
+
+    <div>
+    <span>
+      {{ .Params.Description }}
+   </span>
+  </div>
   {{ end }}
+  {{ end }}
+  {{  if .Params.hero_img }}
+    {{- partial "imgproc.html" . -}}
   {{ end }}
 </header>

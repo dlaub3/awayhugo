@@ -496,15 +496,24 @@ header {
     color: var(--purple) !important; }
   header h1 {
     margin-bottom: 0; }
-  header div {
+  header div:first-of-type {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end; }
-    header div span {
-      color: #f1fa8c;
-      color: var(--yellow);
+    header div:first-of-type span {
+      color: #ff79c6;
+      color: var(--pink);
       background: #424450;
       background: var(--bglighter); }
+  header div:last-of-type {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    background: #424450;
+    background: var(--bglighter); }
+    header div:last-of-type span {
+      color: #f1fa8c;
+      color: var(--yellow); }
 
 @-webkit-keyframes blink {
   0% {
@@ -777,6 +786,7 @@ figure {
       padding: 0;
       list-style-type: none;
       text-decoration: none; }
+      .post-list > ul > li .post-list-item h3,
       .post-list > ul > li .post-list-item .series {
         background: #424450;
         background: var(--bglighter);
@@ -798,8 +808,8 @@ figure {
         color: #50fa7b;
         color: var(--green); }
       .post-list > ul > li .post-list-item .date {
-        color: #f1fa8c;
-        color: var(--yellow);
+        color: #ff79c6;
+        color: var(--pink);
         background: #424450;
         background: var(--bglighter);
         float: right;
