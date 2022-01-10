@@ -1,19 +1,19 @@
 <header>
-  <h1>{{ if (isset .Page.Params "series")}}<span class="series">{{ .Params.series }}:</span> {{ .Title }}{{else}}{{ .Title }}{{end}}</h1>
+  <h1>{{ .Title }}</h1>
   {{ if (isset .Page.Params "date")}}
   {{ if ne .Page.Type "jargon" }}
-    <div>
-      <span>{{ dateFormat "January, 2006" .Date }}</span>
-    </div>
+  <div>
+    <span>{{ dateFormat "January, 2006" .Date }}</span>
+  </div>
 
-    <div>
+  <div>
     <span>
       {{ .Params.Description }}
-   </span>
+    </span>
   </div>
   {{ end }}
   {{ end }}
-  {{  if .Params.hero_img }}
-    {{- partial "imgproc.html" . -}}
+  {{ if .Params.hero_img }}
+  {{- partial "imgproc.html" . -}}
   {{ end }}
 </header>
