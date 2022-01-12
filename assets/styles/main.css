@@ -771,7 +771,8 @@ figure {
   .post-list > ul > li {
     list-style-type: none;
     width: 100%;
-    margin-bottom: 1.5em; }
+    margin-bottom: 4.5em;
+    margin-top: 4.5em; }
     .post-list > ul > li h3,
     .post-list > ul > li p {
       margin: 0; }
@@ -811,12 +812,22 @@ figure {
         color: #ff79c6;
         color: var(--pink);
         background: #424450;
-        background: var(--bglighter);
-        float: right;
-        margin-left: 2em; }
+        background: var(--bglighter); }
     .post-list > ul > li .tag-list,
     .post-list > ul > li .category-list {
-      justify-content: flex-end; }
+      justify-content: flex-end;
+      gap: 0.5em;
+      color: #ff79c6;
+      color: var(--pink);
+      background: #343746;
+      background: var(--bglight); }
+      .post-list > ul > li .tag-list li,
+      .post-list > ul > li .category-list li {
+        margin: 0;
+        background: #bd93f9;
+        background: var(--purple);
+        color: #191a21;
+        color: var(--bgdarker); }
 
 .tag-list,
 .category-list {

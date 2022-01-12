@@ -6,7 +6,8 @@
         > li {
             list-style-type: none;
             width: 100%;
-            margin-bottom: 1.5em;
+            margin-bottom: 4.5em;
+            margin-top: 4.5em;
 
             h3,
             p {
@@ -51,13 +52,19 @@
                 .date {
                     color: var(--pink);
                     background: var(--bglighter);
-                    float: right;
-                    margin-left: 2em;
                 }
             }
             .tag-list,
             .category-list {
                 justify-content: flex-end;
+                gap: 0.5em;
+                color: var(--pink);
+                background: var(--bglight);
+                li {
+                    margin: 0;
+                    background: var(--purple);
+                    color: var(--bgdarker);
+                }
             }
         }
     }

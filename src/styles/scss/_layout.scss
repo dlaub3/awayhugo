@@ -63,6 +63,7 @@ header {
     flex-flow: column nowrap;
     align-items: stretch;
     grid-area: head;
+    //background: var(--bgdarker);
 
     > * {
         background-color: var(--bg);
