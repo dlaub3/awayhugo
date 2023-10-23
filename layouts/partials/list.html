@@ -2,7 +2,7 @@
   {{ if .IsHome }}
   <ul>
     {{ range where .Site.RegularPages "Type" "not in" (slice "jargon" ) }}
-    {{ if ne .Name "About" }}
+    {{ if ne .Name "README" }}
       {{- partial "post-list-item" . -}}
     {{ end }}
     {{ end }}
@@ -15,7 +15,7 @@
   </ul>
   {{ else }}
   <ul>
-    {{ range .RegularPages }}
+    {{ range where .Site.RegularPages "Section" .Type }}
       {{- partial "post-list-item" . -}}
     {{ end }}
   </ul>
