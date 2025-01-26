@@ -1,4 +1,4 @@
-@import 'link';
+@use 'link';
 
 body {
     --menu-bar-height: 55px;
@@ -52,7 +52,7 @@ body {
 }
 
 header {
-    @include link_color(
+    @include link.link_color(
         var(--purple),
         var(--purple),
         var(--purple),
@@ -277,7 +277,7 @@ main > section {
 }
 
 footer {
-    @include link_color(
+    @include link.link_color(
         var(--purple),
         var(--purple),
         var(--purple),

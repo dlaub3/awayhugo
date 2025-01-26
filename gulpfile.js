@@ -10,8 +10,7 @@ const uglify = require('gulp-uglify')
 const concat = require('gulp-concat')
 const rename = require('gulp-rename')
 const replace = require('gulp-replace')
-const sass = require('gulp-sass')
-sass.compiler = require('node-sass')
+const sass = require('gulp-sass')(require('sass'))
 
 const dirString = path.dirname(fs.realpathSync(__filename))
 

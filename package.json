@@ -14,9 +14,9 @@
         "gulp-postcss": "^7.0.1",
         "gulp-rename": "^1.4.0",
         "gulp-replace": "^1.0.0",
-        "gulp-sass": "^4.1.0",
+        "gulp-sass": "^6.0.0",
         "gulp-uglify": "^3.0.1",
-        "sass": "^1.0.0",
+        "sass": "^1.83.0",
         "npm": "^6.3.0",
         "precss": "^3.1.2",
         "prettier": "^1.13.7",
@@ -38,5 +38,6 @@
     },
     "author": "",
     "license": "ISC",
-    "dependencies": {}
+    "dependencies": {},
+    "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
